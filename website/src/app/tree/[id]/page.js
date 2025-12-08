@@ -85,77 +85,83 @@ export default function TreePage({ params }) {
       <InfoCard tree={tree} currentSection={currentSection} />
 
       {/* ===== SECTION DAUN (PALING ATAS) ===== */}
-      <section className="relative min-h-[120vh]">
-        {/* Background sky */}
+      <section className="relative">
+        {/* Background sky - FULL IMAGE sebagai img tag */}
+        <div className="relative w-full">
+          {/* Sky-sun di atas */}
+          <img 
+            src="/assets/Tree-2D/background/skysun.png" 
+            alt="sky sun background"
+            className="w-full h-auto block"
+          />
+          {/* Sky-3 di bawah */}
+          <img 
+            src="/assets/Tree-2D/background/sky-3.png" 
+            alt="sky background"
+            className="w-full h-auto block"
+          />
+        </div>
+        {/* Overlay daun - absolute di atas kedua sky */}
         <div 
           className="absolute inset-0"
           style={{
-            backgroundImage: 'url(/assets/seamless-sky.png)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        />
-        {/* Overlay daun */}
-        <div 
-          className="absolute inset-0"
-          style={{
-            backgroundImage: 'url(/assets/TreeD-daun.png)',
+            backgroundImage: 'url(/assets/daun.png)',
             backgroundSize: 'contain',
             backgroundPosition: 'center bottom',
             backgroundRepeat: 'no-repeat',
           }}
         />
         {/* Content */}
-        <div className="relative z-10 pt-20 px-4">
-          <motion.div 
-            className="text-center max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: -30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 drop-shadow-lg">
-              {tree.sections.daun.title}
-            </h2>
-            <p className="text-gray-100 mb-8 drop-shadow">{tree.sections.daun.description}</p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
-              {tree.sections.daun.facts.map((fact, i) => (
-                <motion.div key={i} className="glass p-4 rounded-xl"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                >
-                  <p className="text-white text-sm">{fact}</p>
-                </motion.div>
-              ))}
-            </div>
-            <div className="glass-dark rounded-2xl p-6">
-              <h3 className="text-xl font-semibold text-forest-300 mb-4">Manfaat {tree.name}</h3>
-              <div className="grid grid-cols-2 gap-3">
-                {tree.benefits.map((benefit, i) => (
-                  <motion.div key={i} className="flex items-center gap-2 text-left"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
+        <div className="absolute inset-0 z-10 pt-20 px-4">
+            <motion.div 
+              className="text-center max-w-2xl mx-auto"
+              initial={{ opacity: 0, y: -30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 drop-shadow-lg">
+                {tree.sections.daun.title}
+              </h2>
+              <p className="text-gray-100 mb-8 drop-shadow">{tree.sections.daun.description}</p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
+                {tree.sections.daun.facts.map((fact, i) => (
+                  <motion.div key={i} className="glass p-4 rounded-xl"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.1 }}
                   >
-                    <span className="text-forest-400">✓</span>
-                    <span className="text-gray-300 text-sm">{benefit}</span>
+                    <p className="text-white text-sm">{fact}</p>
                   </motion.div>
                 ))}
               </div>
-            </div>
-          </motion.div>
-        </div>
+              <div className="glass-dark rounded-2xl p-6">
+                <h3 className="text-xl font-semibold text-forest-300 mb-4">Manfaat {tree.name}</h3>
+                <div className="grid grid-cols-2 gap-3">
+                  {tree.benefits.map((benefit, i) => (
+                    <motion.div key={i} className="flex items-center gap-2 text-left"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.1 }}
+                    >
+                      <span className="text-forest-400">✓</span>
+                      <span className="text-gray-300 text-sm">{benefit}</span>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </div>
       </section>
 
       {/* ===== SECTION BATANG (TENGAH) - SKY + BATANG KEDUANYA LOOP ===== */}
       <section className="relative min-h-[300vh]">
-        {/* Background sky - LOOP */}
+        {/* Background sky-2 - LOOP */}
         <div 
           className="absolute inset-0"
           style={{
-            backgroundImage: 'url(/assets/seamless-sky.png)',
+            backgroundImage: 'url(/assets/Tree-2D/background/sky-2.png)',
             backgroundRepeat: 'repeat-y',
             backgroundSize: '100% auto',
             backgroundPosition: 'center',
@@ -165,7 +171,7 @@ export default function TreePage({ params }) {
         <div 
           className="absolute inset-0"
           style={{
-            backgroundImage: 'url(/assets/TreeD-batang.png)',
+            backgroundImage: 'url(/assets/batang.png)',
             backgroundRepeat: 'repeat-y',
             backgroundSize: '100% auto',
             backgroundPosition: 'center',
@@ -199,42 +205,59 @@ export default function TreePage({ params }) {
       </section>
 
       {/* ===== SECTION AKAR (PALING BAWAH) ===== */}
-      <section className="relative min-h-[120vh]">
-        {/* Background grass */}
+      <section className="relative min-h-[60vh] md:min-h-[120vh] bg-[#7cb342]">
+        {/* Background sky-3 (layer paling belakang) - FULL */}
         <div 
           className="absolute inset-0"
           style={{
-            backgroundImage: 'url(/assets/grass.png)',
+            backgroundImage: 'url(/assets/Tree-2D/background/sky-3-picsay.png)',
             backgroundSize: 'cover',
             backgroundPosition: 'center top',
+          }}
+        />
+        {/* Background rumput - posisi top agar mengikuti akar */}
+        <div 
+          className="absolute inset-0"
+          style={{
+            backgroundImage: 'url(/assets/Tree-2D/background/rumput-hill.png)',
+            backgroundSize: '100% auto',
+            backgroundPosition: 'center top',
+            backgroundRepeat: 'no-repeat',
           }}
         />
         {/* Overlay akar */}
         <div 
           className="absolute inset-0"
           style={{
-            backgroundImage: 'url(/assets/TreeD-akar.png)',
+            backgroundImage: 'url(/assets/akar.png)',
             backgroundSize: 'contain',
             backgroundPosition: 'center top',
             backgroundRepeat: 'no-repeat',
           }}
         />
         {/* Content */}
-        <div className="relative z-10 flex items-end justify-center min-h-[120vh] pb-20 px-4">
+        <div className="relative z-10 flex items-end justify-center min-h-[60vh] md:min-h-[120vh] pb-20 px-4">
           <motion.div 
-            className="text-center"
+            className="text-center p-6 md:p-8 rounded-3xl max-w-lg mx-auto"
+            style={{
+              background: 'rgba(20, 83, 45, 0.75)',
+              backdropFilter: 'blur(12px)',
+              WebkitBackdropFilter: 'blur(12px)',
+              border: '1px solid rgba(255, 255, 255, 0.15)',
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)',
+            }}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
             <p className="text-forest-300 text-sm mb-2">Mulai dari sini</p>
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 drop-shadow-lg">
+            <h2 className="text-2xl md:text-4xl font-bold text-white mb-4">
               {tree.sections.akar.title}
             </h2>
-            <p className="text-gray-200 max-w-lg mx-auto drop-shadow">{tree.sections.akar.description}</p>
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <p className="text-gray-200 text-sm md:text-base">{tree.sections.akar.description}</p>
+            <div className="mt-6 flex flex-wrap justify-center gap-2">
               {tree.sections.akar.facts.map((fact, i) => (
-                <motion.span key={i} className="glass px-4 py-2 rounded-full text-sm text-white"
+                <motion.span key={i} className="bg-white/20 px-3 py-1.5 rounded-full text-xs md:text-sm text-white"
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
@@ -245,7 +268,7 @@ export default function TreePage({ params }) {
               ))}
             </div>
             <motion.div 
-              className="mt-12 text-white/70 text-sm flex flex-col items-center"
+              className="mt-8 text-white/80 text-sm flex flex-col items-center"
               animate={{ y: [0, -8, 0] }}
               transition={{ repeat: Infinity, duration: 1.5 }}
             >
@@ -256,9 +279,9 @@ export default function TreePage({ params }) {
         </div>
       </section>
 
-      <footer className="bg-earth-900 py-6 text-center">
-        <p className="text-gray-500 text-sm">I.Q.R.A - Intelligent Quick-Response Arboretum</p>
-        <p className="text-gray-600 text-xs mt-1">© 2025 - Proyek Edukasi Digital</p>
+      <footer className="bg-forest-900 py-8 text-center">
+        <p className="text-white text-base font-bold">I.Q.R.A - Intelligent Quick-Response Arboretum</p>
+        <p className="text-forest-300 text-sm font-medium mt-2">© 2025 - Proyek Edukasi Digital</p>
       </footer>
     </main>
   )
