@@ -1,21 +1,59 @@
 # Dependencies
 node_modules/
 website/node_modules/
+qr-generator/__pycache__/
+*.pyc
+*.pyo
+*.pyd
 
 # Build output
 .next/
 dist/
 build/
+website/.next/
+website/out/
 
 # Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+*.log
 
-# Env files
+# Env files (SECURITY: Never commit these!)
 .env
 .env.local
+.env.*.local
+.env.production
+.env.development
+
+# Testing
+coverage/
+.nyc_output/
+*.lcov
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
 
 # OS files
 .DS_Store
 Thumbs.db
+Desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/

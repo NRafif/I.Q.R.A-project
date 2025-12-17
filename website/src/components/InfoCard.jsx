@@ -1,5 +1,18 @@
 'use client'
 
+/**
+ * InfoCard Component
+ * 
+ * Component untuk menampilkan informasi pohon dan section indicator.
+ * 
+ * Note: Component ini dibuat tapi belum digunakan di tree detail page.
+ * Digunakan sebagai reference untuk future enhancements.
+ * 
+ * @param {Object} tree - Tree data object
+ * @param {string} currentSection - Current section ('akar', 'batang', 'daun')
+ * @component
+ */
+
 import { motion, AnimatePresence } from 'framer-motion'
 
 export default function InfoCard({ tree, currentSection }) {

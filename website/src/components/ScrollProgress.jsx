@@ -1,11 +1,49 @@
 'use client'
 
+/**
+ * ScrollProgress Component
+ * 
+ * Visual indicator untuk menunjukkan progress scroll di tree detail page.
+ * 
+ * UX Design:
+ * - Reverse progress: bar terisi dari bawah (akar) ke atas (daun)
+ * - Sesuai dengan konsep "Ground-to-Sky" scrolling
+ * - Gradient colors: earth (bawah) → forest (atas)
+ * 
+ * Technical:
+ * - Menggunakan Framer Motion untuk smooth animations
+ * - useSpring untuk natural motion physics
+ * - useTransform untuk reverse progress calculation
+ * 
+ * @param {Object} progress - Scroll progress dari useScroll() hook (0-1)
+ * @component
+ */
+
 import { motion, useSpring, useTransform } from 'framer-motion'
 
 export default function ScrollProgress({ progress }) {
-  // Reverse progress: 0 di bawah (akar), 1 di atas (daun)
+  /**
+   * Reverse progress calculation
+   * 
+   * Mengapa reverse?
+   * - UX "Ground-to-Sky": user mulai dari bawah (akar), scroll ke atas (daun)
+   * - Progress bar harus terisi dari bawah ke atas untuk match visual flow
+   * - Transform: [0, 1] → [1, 0] untuk reverse direction
+   */
   const reversedProgress = useTransform(progress, [0, 1], [1, 0])
   
+  /**
+   * Spring animation configuration
+   * 
+   * Parameter tuning:
+   * - stiffness: 100 - Responsive tapi tidak terlalu bouncy
+   * - damping: 30 - Smooth deceleration
+   * - restDelta: 0.001 - Precision untuk stop animation
+   * 
+   * Mengapa useSpring?
+   * - Natural motion physics untuk better UX
+   * - Smooth transitions saat scroll
+   */
   const scaleY = useSpring(reversedProgress, {
     stiffness: 100,
     damping: 30,
