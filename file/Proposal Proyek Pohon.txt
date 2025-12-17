@@ -1,88 +1,0 @@
-
-
-
-
-
-
-
-I.Q.R.A – Intelligent Quick-Response Arboretum
-
-1. Judul dan Makna Proyek 
-    Kami merencanakan membuat sebuah Digital Information System & Immersive Web Experience. Penamaan proyek ini dipikirkan secara matang dan mengandung tiga makna yang saling melengkapi dapat dilihat dari sisi teknologi, sisi religius, dan sisi filosofis. Ketiga perspektif tersebut membentuk identitas kuat yang tidak hanya menjelaskan fungsi sistem, tetapi juga nilai mendalam yang ingin disampaikan melalui proyek I.Q.R.A.
-A. Sisi Teknologi Secara teknis, I.Q.R.A adalah singkatan dari Intelligent Quick-Response Arboretum.
-* Intelligent: Mewakili pengganti kata teknologi dan pembuatan sistem di balik layar.
-* Quick-Response: Merujuk pada teknologi inti yang kita pakai (QR Code) untuk akses informasi instan.
-* Arboretum: Menjelaskan objek proyek kita, yaitu tempat yang biasanya ditanamkan banyak pohon.
-B. Sisi Religius (Perintah Pertama) Nama ini mengambil esensi dari kata “Iqra” (bacalah), yaitu wahyu pertama yang diturunkan dalam Islam ketika Allah SWT mengutus Malaikat Jibril untuk menyampaikannya kepada Nabi Muhammad SAW. Perintah ini bukan sekadar instruksi untuk membaca teks, tetapi ajakan untuk merenungkan dan memahami makna dari segala tanda-tanda ciptaan-Nya. 
-
-Dengan mengadopsi nama ini, proyek I.Q.R.A berupaya mempraktekkan kembali semangat wahyu pertama tersebut dalam konteks modern dimana kita belajar memahami alam sekitar melalui cara-cara baru yang relevan dengan perkembangan teknologi masa kini. Ini adalah bentuk aktualisasi nilai “Iqra” di era digital, di mana proses membaca dan mempelajari ciptaan Allah SWT diwujudkan melalui sistem informasi interaktif.
-Setelah memegang nilai dasar ini, barulah proyek ini mendorong setiap pengunjung untuk tidak hanya “melihat” pohon sebagai benda mati, tetapi “membaca” ilmu, manfaat, dan kebesaran ciptaan Allah SWT yang tersimpan di dalamnya melalui perantara teknologi. Dengan demikian, pengalaman digital ini menjadi jembatan antara perintah ilahi, ilmu pengetahuan, dan edukasi lingkungan yang bermakna.
-C. Sisi Filosofis Proyek ini adalah sebagai jembatan.
-* Ketika pengunjung mengeluarkan HP dan melakukan scanning, mereka sedang melakukan manifestasi modern dari perintah "Bacalah".
-* Kita mengubah alam yang “Diam” menjadi “Berbicara”. Pohon yang diam kini bisa "Berbicara" memberikan ilmu pengetahuannya kepada manusia.
-    Dari penjelasan diatas nama I.Q.R.A bukan sekadar singkatan teknis, tapi sebuah branding kuat yang menggabungkan kecanggihan IT, semangat Literasi, dan nilai Spiritual dalam satu kata yang mudah diingat.
-
-2. Latar Belakang
-    Proyek I.Q.R.A hadir sebagai solusi transformasi digital yang menjadikan pohon sebagai “entitas informasi” yang dapat dipelajari secara modern. Melalui QR Code dan web interaktif, pengunjung dapat mengakses informasi secara instan, sejalan dengan konsep green-tech dan edukasi publik yang meningkatkan nilai ruang hijau sebagai sarana pembelajaran teknologi dan lingkungan.
-    Proyek I.Q.R.A hadir sebagai solusi transformasi digital, mengubah pohon menjadi “entitas informasi” yang bisa dipelajari dengan cara modern. Dengan QR Code dan web interaktif, setiap pengunjung dapat memperoleh wawasan ilmiah maupun naratif secara instan. Pendekatan ini sejalan dengan inovasi green-tech dan edukasi publik, sekaligus meningkatkan nilai ruang hijau sebagai tempat pembelajaran teknologi dan lingkungan.
-3. Tujuan Proyek
-a. Menghadirkan sistem edukasi digital pada arboretum melalui QR Code.
-b. Membangun website interaktif dengan konsep biomimetic UX.
-c. Menghilangkan ketergantungan pada papan informasi fisik.
-d. Memberikan pengalaman belajar yang imersif dan menarik bagi pengunjung.
-
-4. Ruang Lingkup Proyek (Scope)
-a. Ruang Lingkup Termasuk
-* Perancangan arsitektur sistem end-to-end.
-* Penyusunan database pohon (JSON).
-* Pembuatan script Python untuk generate QR Code otomatis (batch processing).
-* Pengembangan website interaktif berbasis Next.js + Tailwind + Framer Motion.
-* Penerapan konsep UX “Ground-to-Sky” (permukaan tanah ? batang ? daun).
-* Deployment serverless sebagai prototype (Vercel).
-* Dokumentasi teknis dasar.
-b. Ruang Lingkup Tidak Termasuk
-* Pengadaan biaya dan material cetak akrilik untuk QR.
-* Perawatan tanaman.
-* Pengembangan aplikasi mobile.
-
-5. Gambaran Sistem
-    I.Q.R.A merupakan sistem informasi digital berbasis QR yang memungkinkan setiap pohon di lingkungan sekolah memiliki halaman informasinya sendiri. Pengunjung cukup memindai QR dengan smartphone dan langsung diarahkan ke web interaktif yang menampilkan identitas pohon, visual dinamis, serta narasi edukatif. Pendekatan “Biomimetic UX” membuat pengalaman belajar mengikuti struktur alami pohon yang dimulai dari bagian paling awal pohon berdiri di permukaan tanah, lalu scroll ke batang, hingga ke bagian puncak/daun dan manfaat ekologisnya. Sistem ini direncanakan dibuat ringan, cepat diakses, dan memiliki biaya operasional yang sangat minimal.
-    
-    
-6. Spesifikasi Fitur
-a. Backend & Data Processing
-* Input data berbentuk JSON (ID, Nama Latin, Deskripsi).
-* Script Python (library qrcode) menghasilkan ratusan QR Code secara otomatis.
-* Encoding URL dinamis per spesies pohon.
-* Struktur hubungan one-to-many: satu halaman untuk tiap spesies.
-b. Frontend & User Interface
-* Framework: Next.js + Tailwind CSS + Framer Motion
-* Fitur UI/UX:
-> Reverse Scrolling (mulai dari POV (sudut pandang) bawah).
-> Sticky Info Cards untuk informasi tetap terlihat walau scroll berjalan.
-> Glassmorphism agar elemen UI tidak menutupi visual pohon.
-* Layer konten:
-> Bawah: Akar, unsur tanah, identitas spesies.
-> Tengah: Batang, tekstur kayu, manfaat serat.
-> Atas: Daun, bunga, oksigen, peran ekologis.
-7. Pipeline & Workflow Proyek
-
-Gambar 1. Flowchart Diagram Alur Project
-8. Timeline Proyek 
-Tabel 1. Timeline Proyek
-NoKegiatanWaktu (1 Bulan)1Pencatatan Data Pohon + Desain UI/UXMinggu ke-12Pengembangan Automasi QR Code + Website Minggu ke-23Pengembangan UI/UX InteraktifMinggu ke-34Testing, Deployment, dan FinalisasiMinggu ke-4
-9. Tim Proyek
-Tabel 2. Peran Tim
-AnggotaPeranTanggung JawabNofal Rafif SetiawanSystem Architect + Backend Engineer* Arsitektur
-* Pembuatan Script Python
-* Mengatur Struktur DataGilang Maulana KussayFrontend Developer + UI/UX Engineer* Membuat Desain UI/UX
-* Mengembangkan Web 
-* Optimalisasi Performa
-10.  Penutup
-    Proyek I.Q.R.A adalah langkah nyata dalam menghadirkan edukasi lingkungan berbasis teknologi, dengan konsep UX yang unik dan sistem backend otomatis. Dengan implementasi yang hemat biaya dan tidak invasif terhadap alam, sistem ini diharapkan dapat meningkatkan kualitas interaksi pengunjung dengan pohon dan memperkuat fungsi arboretum sebagai pusat pembelajaran terbuka.
-Gunung Sindur, 5 Desember 2025
-Yang merencanakan:				
-
-(Nofal Rafif Setiawan)
-
-(Gilang Maulana Kussay)
