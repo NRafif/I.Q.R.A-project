@@ -59,8 +59,8 @@ def hapus_background_pil(input_path, output_path):
 # Contoh penggunaan
 if __name__ == "__main__":
     # Ganti dengan path file Anda
-    input_file = "batang2.png"
-    output_file = "batang2-nobg.png"
+    input_file = "tree-real.png"
+    output_file = "tree-real-nobg.png"
     
     print("Menghapus background...")
     hapus_background(input_file, output_file)

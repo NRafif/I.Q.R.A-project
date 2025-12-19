@@ -8,6 +8,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        // New design: Elegant muted greens
+        'primary': '#2d5a3c',
+        'secondary': '#4a7c59',
+        'accent': '#8da399',
+        'bg-light': '#ffffff',
+        'bg-subtle': '#f8f9fa',
+        'text-main': '#1a1a1a',
+        'text-muted': '#6b7280',
+        // Legacy colors (for tree detail page compatibility)
         'forest': {
           50: '#f0fdf4',
           100: '#dcfce7',
@@ -31,6 +40,13 @@ module.exports = {
           800: '#3d2414',
           900: '#2d1a0f',
         }
+      },
+      fontFamily: {
+        'sans': ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        'serif': ['Playfair Display', 'ui-serif', 'Georgia', 'serif'],
+      },
+      boxShadow: {
+        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
       },
     },
   },

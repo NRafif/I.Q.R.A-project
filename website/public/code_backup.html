@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>I.Q.R.A - Intelligent Quick-Response Arboretum</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#2d5a3c", // Elegant muted green
+                        secondary: "#4a7c59", // Softer green
+                        accent: "#8da399", // Sage green for subtle accents
+                        "bg-light": "#ffffff", 
+                        "bg-subtle": "#f8f9fa",
+                        "text-main": "#1a1a1a",
+                        "text-muted": "#6b7280",
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        'xl': "1rem",
+                        '2xl': "1.5rem",
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+                    }
+                },
+            },
+        };
+    </script>
+<style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        .text-vertical {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+    </style>
+</head>
+<body class="bg-bg-light text-text-main font-sans antialiased transition-colors duration-300">
+<nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 py-4">
+<div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+<div class="font-serif text-2xl font-bold text-primary tracking-wide">I.Q.R.A.</div>
+<div class="hidden md:flex space-x-8 text-sm font-medium text-text-main">
+<a class="hover:text-primary transition-colors" href="#">Beranda</a>
+<a class="hover:text-primary transition-colors" href="#">Koleksi</a>
+<a class="hover:text-primary transition-colors" href="#">Tentang</a>
+</div>
+<button class="md:hidden text-text-main">
+<span class="material-icons">menu</span>
+</button>
+</div>
+</nav>
+<header class="relative min-h-screen flex items-center justify-center overflow-hidden bg-bg-light pt-20">
+<div class="absolute top-0 right-0 w-1/3 h-full bg-bg-subtle -z-10 hidden lg:block"></div>
+<div class="max-w-7xl mx-auto w-full px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="space-y-8 order-2 lg:order-1 text-center lg:text-left">
+<div class="space-y-4">
+<span class="inline-block py-1 px-3 border border-primary/20 rounded-full text-xs font-semibold tracking-wider text-primary uppercase">Arboretum Digital</span>
+<h1 class="font-serif text-6xl md:text-7xl lg:text-8xl font-medium leading-tight text-text-main">
+                        Intelligent <br/>
+<span class="text-primary italic">Arboretum</span>
+</h1>
+<p class="text-text-muted text-lg md:text-xl font-light max-w-lg mx-auto lg:mx-0 leading-relaxed">
+                        "Bacalah" — Mengubah pohon yang diam menjadi berbicara. Sebuah eksplorasi botani melalui lensa teknologi modern.
+                    </p>
+</div>
+<div class="flex flex-col sm:flex-row gap-5 justify-center lg:justify-start pt-4">
+<button class="bg-primary hover:bg-secondary text-white font-medium py-4 px-10 rounded-full transition-all duration-300 shadow-soft hover:shadow-lg transform hover:-translate-y-0.5 tracking-wide">
+                        Jelajahi Koleksi
+                    </button>
+<button class="group flex items-center gap-2 text-text-main font-medium py-4 px-8 rounded-full transition-all hover:text-primary">
+<span>Tentang Proyek</span>
+<span class="material-icons text-sm transform group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+<div class="pt-12 flex items-center justify-center lg:justify-start gap-12 border-t border-gray-100 mt-12 w-full max-w-md mx-auto lg:mx-0">
+<div>
+<p class="font-serif text-3xl font-bold text-text-main">17</p>
+<p class="text-xs text-text-muted uppercase tracking-wider mt-1">Spesies Tanaman</p>
+</div>
+<div>
+<p class="font-serif text-3xl font-bold text-text-main">24/7</p>
+<p class="text-xs text-text-muted uppercase tracking-wider mt-1">Akses Digital</p>
+</div>
+</div>
+</div>
+<div class="relative order-1 lg:order-2 flex justify-center items-center h-[50vh] lg:h-auto">
+<div class="absolute w-[80%] h-[80%] rounded-full bg-secondary/5 blur-3xl -z-10"></div>
+<img alt="Majestic Tree Silhouette" class="w-full max-w-md lg:max-w-lg object-contain drop-shadow-2xl transform hover:scale-105 transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4Z8Lw_LRADLYdAt_xhZDWe4qDcGeVjS_Fr_GJNASk7qDzP2BgaOFWFDzxwoiix1Me4GrawOYCnRHOF6v6CNcipJyto9-N09DYHPq0mTE1eqt-kxYM-HZBTrbemK0BWTVdNtg-J51xC21bhbzmcPk9d06Y0-nopMZGwC3cpXwJFNHIqRCc3uNIcaHQ-SPFP4ybaCXe5GN2MATvT2loUeLGRhamjxd1_s4iWAGTZwZr-39Hpah2S_FdPHKFW6eryJt2zunoa_WbuSE" style="filter: brightness(1.05) contrast(1.05);"/>
+<div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl hidden md:block animate-bounce" style="animation-duration: 3s;">
+<div class="flex items-center gap-3">
+<div class="bg-green-100 p-2 rounded-full text-primary">
+<span class="material-symbols-outlined">qr_code_scanner</span>
+</div>
+<div>
+<p class="text-xs text-gray-500">Scan &amp; Learn</p>
+<p class="font-bold text-sm text-primary">Instant Info</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<section class="py-32 px-6 bg-white">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-20">
+<span class="text-primary text-sm font-semibold tracking-[0.2em] uppercase block mb-3">Flora Library</span>
+<h2 class="font-serif text-4xl md:text-5xl font-medium text-text-main mb-6">Koleksi Pohon</h2>
+<div class="w-16 h-0.5 bg-primary/30 mx-auto"></div>
+<p class="text-text-muted mt-6 max-w-xl mx-auto font-light">
+                    Menjelajahi keanekaragaman hayati di sekitar kita. Setiap spesies memiliki cerita, manfaat, dan filosofi yang unik.
+                </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="group bg-white rounded-2xl p-8 border border-gray-100 hover:border-primary/20 hover:shadow-soft transition-all duration-500">
+<div class="flex justify-between items-start mb-6">
+<span class="font-serif text-4xl text-gray-100 group-hover:text-primary/10 transition-colors">01</span>
+<span class="text-[10px] font-bold tracking-widest uppercase bg-gray-50 px-3 py-1 rounded-full text-gray-500">Parkiran</span>
+</div>
+<div class="mb-6 h-48 overflow-hidden rounded-lg bg-gray-50 relative">
+<div class="absolute inset-0 bg-primary/5 flex items-center justify-center group-hover:scale-105 transition-transform duration-700">
+<span class="material-symbols-outlined text-6xl text-primary/20">spa</span>
+</div>
+</div>
+<h3 class="font-serif text-2xl font-bold text-text-main mb-1 group-hover:text-primary transition-colors">Rambutan</h3>
+<p class="text-sm font-serif italic text-text-muted mb-4">Nephelium lappaceum L.</p>
+<div class="space-y-3 pt-4 border-t border-gray-100">
+<p class="text-xs font-bold text-primary tracking-wide uppercase">The Hairy Sweetness</p>
+<p class="text-sm text-gray-500 leading-relaxed line-clamp-3">
+                            Di balik penampilannya yang liar dan berantakan, tersimpan kemanisan yang murni. Pengingat alami...
+                        </p>
+</div>
+<a class="inline-block mt-6 text-sm font-medium text-text-main hover:text-primary transition-colors border-b border-transparent hover:border-primary pb-0.5" href="#">Lihat Detail</a>
+</div>
+<div class="group bg-white rounded-2xl p-8 border border-gray-100 hover:border-primary/20 hover:shadow-soft transition-all duration-500">
+<div class="flex justify-between items-start mb-6">
+<span class="font-serif text-4xl text-gray-100 group-hover:text-primary/10 transition-colors">02</span>
+<span class="text-[10px] font-bold tracking-widest uppercase bg-gray-50 px-3 py-1 rounded-full text-gray-500">Parkiran +</span>
+</div>
+<div class="mb-6 h-48 overflow-hidden rounded-lg bg-gray-50 relative">
+<div class="absolute inset-0 bg-primary/5 flex items-center justify-center group-hover:scale-105 transition-transform duration-700">
+<span class="material-symbols-outlined text-6xl text-primary/20">park</span>
+</div>
+</div>
+<h3 class="font-serif text-2xl font-bold text-text-main mb-1 group-hover:text-primary transition-colors">Ketapang Kencana</h3>
+<p class="text-sm font-serif italic text-text-muted mb-4">Terminalia mantaly</p>
+<div class="space-y-3 pt-4 border-t border-gray-100">
+<p class="text-xs font-bold text-primary tracking-wide uppercase">The Natural Parasol</p>
+<p class="text-sm text-gray-500 leading-relaxed line-clamp-3">
+                            Arsitektur alam yang sempurna untuk perlindungan. Tajuknya yang berlapis mengajarkan kita seni...
+                        </p>
+</div>
+<a class="inline-block mt-6 text-sm font-medium text-text-main hover:text-primary transition-colors border-b border-transparent hover:border-primary pb-0.5" href="#">Lihat Detail</a>
+</div>
+<div class="group bg-white rounded-2xl p-8 border border-gray-100 hover:border-primary/20 hover:shadow-soft transition-all duration-500">
+<div class="flex justify-between items-start mb-6">
+<span class="font-serif text-4xl text-gray-100 group-hover:text-primary/10 transition-colors">03</span>
+<span class="text-[10px] font-bold tracking-widest uppercase bg-gray-50 px-3 py-1 rounded-full text-gray-500">Parkiran</span>
+</div>
+<div class="mb-6 h-48 overflow-hidden rounded-lg bg-gray-50 relative">
+<div class="absolute inset-0 bg-primary/5 flex items-center justify-center group-hover:scale-105 transition-transform duration-700">
+<span class="material-symbols-outlined text-6xl text-primary/20">forest</span>
+</div>
+</div>
+<h3 class="font-serif text-2xl font-bold text-text-main mb-1 group-hover:text-primary transition-colors">Palem Putri</h3>
+<p class="text-sm font-serif italic text-text-muted mb-4">Veitchia merrillii</p>
+<div class="space-y-3 pt-4 border-t border-gray-100">
+<p class="text-xs font-bold text-primary tracking-wide uppercase">The Christmas Palm</p>
+<p class="text-sm text-gray-500 leading-relaxed line-clamp-3">
+                            Dinamai karena buah merahnya yang meriah di bulan Desember, palem ini membawa semangat perayaan...
+                        </p>
+</div>
+<a class="inline-block mt-6 text-sm font-medium text-text-main hover:text-primary transition-colors border-b border-transparent hover:border-primary pb-0.5" href="#">Lihat Detail</a>
+</div>
+<div class="group bg-white rounded-2xl p-8 border border-gray-100 hover:border-primary/20 hover:shadow-soft transition-all duration-500">
+<div class="flex justify-between items-start mb-6">
+<span class="font-serif text-4xl text-gray-100 group-hover:text-primary/10 transition-colors">04</span>
+<span class="text-[10px] font-bold tracking-widest uppercase bg-gray-50 px-3 py-1 rounded-full text-gray-500">Parkiran</span>
+</div>
+<div class="mb-6 h-48 overflow-hidden rounded-lg bg-gray-50 relative">
+<div class="absolute inset-0 bg-primary/5 flex items-center justify-center group-hover:scale-105 transition-transform duration-700">
+<span class="material-symbols-outlined text-6xl text-primary/20">local_florist</span>
+</div>
+</div>
+<h3 class="font-serif text-2xl font-bold text-text-main mb-1 group-hover:text-primary transition-colors">Bunga Sepatu</h3>
+<p class="text-sm font-serif italic text-text-muted mb-4">Hibiscus rosa-sinensis</p>
+<div class="space-y-3 pt-4 border-t border-gray-100">
+<p class="text-xs font-bold text-primary tracking-wide uppercase">The Natural Shoe Polish</p>
+<p class="text-sm text-gray-500 leading-relaxed line-clamp-3">
+                           Lebih dari sekadar kelopak cantik. Sejarah membisikkan masa lalunya yang praktis di India,...
+                        </p>
+</div>
+<a class="inline-block mt-6 text-sm font-medium text-text-main hover:text-primary transition-colors border-b border-transparent hover:border-primary pb-0.5" href="#">Lihat Detail</a>
+</div>
+<div class="group bg-white rounded-2xl p-8 border border-gray-100 hover:border-primary/20 hover:shadow-soft transition-all duration-500">
+<div class="flex justify-between items-start mb-6">
+<span class="font-serif text-4xl text-gray-100 group-hover:text-primary/10 transition-colors">05</span>
+<span class="text-[10px] font-bold tracking-widest uppercase bg-gray-50 px-3 py-1 rounded-full text-gray-500">Lapangan</span>
+</div>
+<div class="mb-6 h-48 overflow-hidden rounded-lg bg-gray-50 relative">
+<div class="absolute inset-0 bg-primary/5 flex items-center justify-center group-hover:scale-105 transition-transform duration-700">
+<span class="material-symbols-outlined text-6xl text-primary/20">filter_vintage</span>
+</div>
+</div>
+<h3 class="font-serif text-2xl font-bold text-text-main mb-1 group-hover:text-primary transition-colors">Kamboja Kuning</h3>
+<p class="text-sm font-serif italic text-text-muted mb-4">Plumeria rubra 'Lutea'</p>
+<div class="space-y-3 pt-4 border-t border-gray-100">
+<p class="text-xs font-bold text-primary tracking-wide uppercase">The Immortal Fragrance</p>
+<p class="text-sm text-gray-500 leading-relaxed line-clamp-3">
+                           Bunga yang menolak kehilangan esensinya. Bahkan ketika jatuh ke tanah, ia tetap menjaga wanginya,...
+                        </p>
+</div>
+<a class="inline-block mt-6 text-sm font-medium text-text-main hover:text-primary transition-colors border-b border-transparent hover:border-primary pb-0.5" href="#">Lihat Detail</a>
+</div>
+<div class="group bg-white rounded-2xl p-8 border border-gray-100 hover:border-primary/20 hover:shadow-soft transition-all duration-500">
+<div class="flex justify-between items-start mb-6">
+<span class="font-serif text-4xl text-gray-100 group-hover:text-primary/10 transition-colors">06</span>
+<span class="text-[10px] font-bold tracking-widest uppercase bg-gray-50 px-3 py-1 rounded-full text-gray-500">Lapangan</span>
+</div>
+<div class="mb-6 h-48 overflow-hidden rounded-lg bg-gray-50 relative">
+<div class="absolute inset-0 bg-primary/5 flex items-center justify-center group-hover:scale-105 transition-transform duration-700">
+<span class="material-symbols-outlined text-6xl text-primary/20">yard</span>
+</div>
+</div>
+<h3 class="font-serif text-2xl font-bold text-text-main mb-1 group-hover:text-primary transition-colors">Tabebuya Kuning</h3>
+<p class="text-sm font-serif italic text-text-muted mb-4">Handroanthus chrysotrichus</p>
+<div class="space-y-3 pt-4 border-t border-gray-100">
+<p class="text-xs font-bold text-primary tracking-wide uppercase">The Sakura of Tropics</p>
+<p class="text-sm text-gray-500 leading-relaxed line-clamp-3">
+                           Membawa keajaiban musim semi ke iklim tropis. Ketika panas menyerang, ia menjawabnya dengan...
+                        </p>
+</div>
+<a class="inline-block mt-6 text-sm font-medium text-text-main hover:text-primary transition-colors border-b border-transparent hover:border-primary pb-0.5" href="#">Lihat Detail</a>
+</div>
+</div>
+<div class="text-center mt-16">
+<button class="inline-flex items-center gap-2 px-8 py-3 border border-gray-200 rounded-full hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 text-sm font-medium">
+<span>Lihat Semua Koleksi</span>
+<span class="material-symbols-outlined text-sm">arrow_downward</span>
+</button>
+</div>
+</div>
+</section>
+<section class="py-32 bg-bg-subtle relative overflow-hidden">
+<div class="absolute left-0 top-0 w-64 h-64 bg-primary/5 rounded-br-full -z-0"></div>
+<div class="max-w-6xl mx-auto px-6 relative z-10">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-20">
+<div>
+<span class="text-primary text-sm font-semibold tracking-[0.2em] uppercase block mb-3">Tentang I.Q.R.A</span>
+<h2 class="font-serif text-4xl md:text-5xl font-medium text-text-main mb-6 leading-tight">Menjembatani Alam &amp; <br/>Teknologi</h2>
+<p class="text-text-muted text-lg font-light leading-relaxed">
+                         Proyek ini bertujuan untuk menciptakan interaksi bermakna antara manusia dan tumbuhan melalui integrasi QR Code dan informasi digital yang mendalam.
+                     </p>
+</div>
+<div class="relative h-64 md:h-full bg-white rounded-2xl shadow-soft p-8 flex items-center justify-center">
+<img alt="Texture" class="absolute inset-0 w-full h-full object-cover rounded-2xl opacity-10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBl3lXYvB0ko6vVXqF6p26TlKOWp88FyvtYtzP3cn8OCLCLKk0Sd94kZs8VrqBLgsPsPCAMFAsD1DHixYlBBNGUnlJYar7hWHQapfHrbvx9GFSAYeCPYE1CxuA-Wz_mC5zOBEui4nyuGKylscLMi-FNCmph-ftWqC-JD3Yl4a_HodXb-1GIa8B2SLS5so07fz2m2Oc2AA9W-EgtM1LKfJR79eRuhWgMU5joZBvcjjbhzzxXwy5aaVdqCadqxWOzimzJJus_1HtVm9g"/>
+<p class="font-serif text-2xl text-center italic text-primary">"Alam tidak bisu, kita hanya perlu belajar bahasanya."</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-white p-10 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 group border-t-4 border-transparent hover:border-primary">
+<div class="mb-6 w-14 h-14 bg-blue-50 rounded-full flex items-center justify-center group-hover:bg-blue-100 transition-colors">
+<span class="material-symbols-outlined text-3xl text-blue-600">biotech</span>
+</div>
+<h3 class="text-xl font-serif font-bold mb-3 text-text-main">Teknologi</h3>
+<p class="text-gray-500 text-sm leading-relaxed">
+                        Sistem identifikasi berbasis QR Code yang memberikan akses instan ke database botani komprehensif.
+                    </p>
+</div>
+<div class="bg-white p-10 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 group border-t-4 border-transparent hover:border-primary">
+<div class="mb-6 w-14 h-14 bg-amber-50 rounded-full flex items-center justify-center group-hover:bg-amber-100 transition-colors">
+<span class="material-symbols-outlined text-3xl text-amber-600">menu_book</span>
+</div>
+<h3 class="text-xl font-serif font-bold mb-3 text-text-main">Religius</h3>
+<p class="text-gray-500 text-sm leading-relaxed">
+                        Mengambil esensi "Iqra" — sebuah perintah fundamental untuk membaca, meneliti, dan memahami tanda-tanda alam.
+                    </p>
+</div>
+<div class="bg-white p-10 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 group border-t-4 border-transparent hover:border-primary">
+<div class="mb-6 w-14 h-14 bg-green-50 rounded-full flex items-center justify-center group-hover:bg-green-100 transition-colors">
+<span class="material-symbols-outlined text-3xl text-green-600">spa</span>
+</div>
+<h3 class="text-xl font-serif font-bold mb-3 text-text-main">Filosofis</h3>
+<p class="text-gray-500 text-sm leading-relaxed">
+                        Memberikan suara pada yang diam. Mengajak manusia untuk merenungi kebijaksanaan yang tumbuh dalam diam.
+                    </p>
+</div>
+</div>
+</div>
+</section>
+<footer class="bg-primary text-white py-20 border-t border-primary/10">
+<div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="md:col-span-2">
+<h3 class="font-serif text-3xl font-bold mb-6">I.Q.R.A.</h3>
+<p class="text-white/70 max-w-sm leading-relaxed font-light">
+                    Intelligent Quick-Response Arboretum. Sebuah inisiatif digital untuk mendekatkan manusia dengan alam melalui teknologi dan edukasi.
+                </p>
+</div>
+<div>
+<h4 class="font-semibold mb-6 tracking-wider uppercase text-sm text-white/90">Navigasi</h4>
+<ul class="space-y-4 text-white/60 font-light">
+<li><a class="hover:text-white transition-colors" href="#">Beranda</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Koleksi Pohon</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Tentang Kami</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Peta Lokasi</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-semibold mb-6 tracking-wider uppercase text-sm text-white/90">Kontak</h4>
+<ul class="space-y-4 text-white/60 font-light">
+<li class="flex items-center gap-3">
+<span class="material-icons text-sm">email</span>
+                        info@iqra-arboretum.id
+                    </li>
+<li class="flex items-center gap-3">
+<span class="material-icons text-sm">location_on</span>
+                        Kampus Hijau, Indonesia
+                    </li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-sm text-white/40">
+<p>© 2025 I.Q.R.A Project. All rights reserved.</p>
+<p class="mt-2 md:mt-0">Designed with nature in mind.</p>
+</div>
+</footer>
+</body></html>
