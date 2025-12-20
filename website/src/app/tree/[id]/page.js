@@ -220,7 +220,7 @@ export default function TreePage({ params }) {
           backgroundSize: '100% auto',
           backgroundPosition: 'center bottom',
           backgroundRepeat: 'no-repeat',
-          filter: 'drop-shadow(0 25px 50px rgba(0,0,0,0.3))',
+          filter: 'drop-shadow(0 50px 100px rgba(0,0,0,0.8))',
         }} />
       </section>
 
@@ -235,7 +235,7 @@ export default function TreePage({ params }) {
           backgroundRepeat: 'repeat-y',
           backgroundSize: '100% auto',
           backgroundPosition: 'center top',
-          filter: 'drop-shadow(0 0 40px rgba(0,0,0,0.25))',
+          filter: 'drop-shadow(0 30px 100px rgba(0,0,0,0.8))',
         }} />
       </section>
 
@@ -250,7 +250,7 @@ export default function TreePage({ params }) {
           backgroundSize: 'contain',
           backgroundPosition: 'center top',
           backgroundRepeat: 'no-repeat',
-          filter: 'drop-shadow(0 -20px 40px rgba(0,0,0,0.3))',
+          filter: 'drop-shadow(0 -30px 100px rgba(0,0,0,0.8))',
         }} />
       </section>
 
