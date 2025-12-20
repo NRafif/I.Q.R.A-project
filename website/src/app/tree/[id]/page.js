@@ -84,8 +84,10 @@ export default function TreePage({ params }) {
         const trunkCards = tree?.content?.trunk_section?.length || 1
         const trunkProgress = (scrollPercent - 0.3) / 0.4
         setActiveTrunkCard(Math.min(Math.floor(trunkProgress * trunkCards), trunkCards - 1))
-      } else {
+      } else if (scrollPercent > 0.1) {
         setCurrentSection('canopy')
+      } else {
+        setCurrentSection('sky')
       }
     }
 
@@ -139,41 +141,43 @@ export default function TreePage({ params }) {
       </div>
 
       {/* ===== FIXED CONTENT CARD (BOTTOM-CENTER) ===== */}
-      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-40 w-full max-w-lg px-4">
-        {currentSection === 'canopy' && (
-          <motion.div key="canopy-card" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <JournalCard
-              variant="ecology"
-              icon="🌿"
-              title={tree.content?.canopy_section?.title || 'Manfaat Ekologis'}
-              content={tree.content?.canopy_section?.description}
-              tags={["Habitat", "Nektar", "Oksigen"]}
-            />
-          </motion.div>
-        )}
+      {currentSection !== 'sky' && (
+        <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  z-40 w-full max-w-lg px-4">
+          {currentSection === 'canopy' && (
+            <motion.div key="canopy-card" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+              <JournalCard
+                variant="ecology"
+                icon="🌿"
+                title={tree.content?.canopy_section?.title || 'Manfaat Ekologis'}
+                content={tree.content?.canopy_section?.description}
+                tags={["Habitat", "Nektar", "Oksigen"]}
+              />
+            </motion.div>
+          )}
 
-        {currentSection === 'trunk' && currentTrunkData && (
-          <motion.div key={`trunk-card-${activeTrunkCard}`} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <JournalCard
-              variant={isInsight ? 'insight' : 'history'}
-              badgeText={currentTrunkData.type}
-              title={currentTrunkData.title}
-              content={currentTrunkData.description}
-            />
-          </motion.div>
-        )}
+          {currentSection === 'trunk' && currentTrunkData && (
+            <motion.div key={`trunk-card-${activeTrunkCard}`} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+              <JournalCard
+                variant={isInsight ? 'insight' : 'history'}
+                badgeText={currentTrunkData.type}
+                title={currentTrunkData.title}
+                content={currentTrunkData.description}
+              />
+            </motion.div>
+          )}
 
-        {currentSection === 'root' && (
-          <motion.div key="root-card" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <JournalCard
-              variant="root"
-              badgeText="🌱 Mulai Dari Sini"
-              title={tree.common_name}
-              content={tree.content?.root_section?.description}
-            />
-          </motion.div>
-        )}
-      </div>
+          {currentSection === 'root' && (
+            <motion.div key="root-card" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+              <JournalCard
+                variant="root"
+                badgeText="🌱 Mulai Dari Sini"
+                title={tree.common_name}
+                content={tree.content?.root_section?.description}
+              />
+            </motion.div>
+          )}
+        </div>
+      )}
 
       {/* Trunk card indicator */}
       {currentSection === 'trunk' && (
@@ -188,9 +192,9 @@ export default function TreePage({ params }) {
       )}
 
       {/* ===== SECTION SKY (PALING ATAS) - HEADLINE ===== */}
-      <section className="relative min-h-[70vh] bg-gradient-to-b from-[#e0f2fe] via-[#f0fdf4] to-[#fefce8]">
+      <section className="relative min-h-[40vh] md:min-h-[70vh] bg-gradient-to-b from-[#e0f2fe] via-[#f0fdf4] to-[#fefce8]">
         <motion.div
-          className="text-center max-w-4xl mx-auto pt-32 pb-16 px-4"
+          className="text-center max-w-4xl mx-auto pt-56 pb-4 md:pb-16 px-4"
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -205,22 +209,22 @@ export default function TreePage({ params }) {
       </section>
 
       {/* ===== SECTION CANOPY (DAUN) - FULL WIDTH ===== */}
-      <section className="relative min-h-[215vh]" aria-label="Bagian daun">
+      <section className="relative min-h-[215vh] z-10" aria-label="Bagian daun">
         {/* Clean gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#fefce8] to-[#fefce8]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#fefce8] to-transparent" />
 
         {/* ORIGINAL LAYOUT: Daun asset FULL - tidak terpotong */}
         <div className="absolute inset-0" style={{
           backgroundImage: 'url(/assets/daun.png)',
           backgroundSize: '100% auto',
-          backgroundPosition: 'center center',
+          backgroundPosition: 'center bottom',
           backgroundRepeat: 'no-repeat',
           filter: 'drop-shadow(0 25px 50px rgba(0,0,0,0.3))',
         }} />
       </section>
 
       {/* ===== SECTION BATANG (MIDDLE) - LAYOUT ORIGINAL ===== */}
-      <section className="relative min-h-[400vh]" aria-label="Bagian batang pohon">
+      <section className="relative min-h-[400vh] -mt-[40vh] pt-[40vh] z-0" aria-label="Bagian batang pohon">
         {/* CLEAN GRADIENT (replaces sky-2 image) */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#fefce8] via-[#fef3c7] to-[#fde68a]" />
 
@@ -229,12 +233,13 @@ export default function TreePage({ params }) {
           backgroundImage: 'url(/assets/batang.png)',
           backgroundRepeat: 'repeat-y',
           backgroundSize: '100% auto',
+          backgroundPosition: 'center top',
           filter: 'drop-shadow(0 0 40px rgba(0,0,0,0.25))',
         }} />
       </section>
 
       {/* ===== SECTION AKAR (BOTTOM) - LAYOUT ORIGINAL ===== */}
-      <section className="relative min-h-[70vh] md:min-h-[120vh]" aria-label="Bagian akar pohon">
+      <section className="relative min-h-[40vh] md:min-h-[120vh]" aria-label="Bagian akar pohon">
         {/* CLEAN GRADIENT (replaces sky-3-picsay & rumput) */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#fde68a] via-[#d4a574] to-[#8b6f4e]" />
 
