@@ -77,14 +77,15 @@ export default function TreePage({ params }) {
     const handleScroll = () => {
       const scrollPercent = window.scrollY / (document.body.scrollHeight - window.innerHeight)
 
-      if (scrollPercent > 0.7) {
+      // Threshold disesuaikan: root (0.95-1.0), trunk (0.40-0.95), canopy (0.1-0.40), sky (<0.1)
+      if (scrollPercent > 0.95) {
         setCurrentSection('root')
-      } else if (scrollPercent > 0.3) {
+      } else if (scrollPercent > 0.40) {
         setCurrentSection('trunk')
         const trunkCards = tree?.content?.trunk_section?.length || 1
-        const trunkProgress = (scrollPercent - 0.3) / 0.4
+        const trunkProgress = (scrollPercent - 0.40) / 0.55
         setActiveTrunkCard(Math.min(Math.floor(trunkProgress * trunkCards), trunkCards - 1))
-      } else if (scrollPercent > 0.1) {
+      } else if (scrollPercent > 0.2) {
         setCurrentSection('canopy')
       } else {
         setCurrentSection('sky')
