@@ -23,7 +23,7 @@ function TreeCard({ tree, index }) {
             transition={{ delay: index * 0.05 }}
         >
             <Link
-                href={`/tree/${tree.id}`}
+                href={`/tree/${tree.id}/lens`}
                 className="group block bg-white rounded-2xl p-8 border border-gray-100 hover:border-primary/20 hover:shadow-soft transition-all duration-500 h-full focus:outline-none focus:ring-2 focus:ring-primary/50"
                 aria-label={`Pelajari tentang ${tree.common_name} (${tree.scientific_name})`}
             >
@@ -55,10 +55,10 @@ function TreeCard({ tree, index }) {
                 {/* Content preview */}
                 <div className="space-y-3 pt-4 border-t border-gray-100">
                     <p className="text-xs font-bold text-primary tracking-wide uppercase">
-                        {tree.content?.sky_section?.headline || 'Eksplorasi Alam'}
+                        {tree.story_mode?.sky_section?.headline || 'Eksplorasi Alam'}
                     </p>
                     <p className="text-sm text-gray-500 leading-relaxed line-clamp-3">
-                        {tree.content?.sky_section?.sub_headline || 'Pelajari lebih lanjut tentang pohon ini.'}
+                        {tree.story_mode?.sky_section?.sub_headline || 'Pelajari lebih lanjut tentang pohon ini.'}
                     </p>
                 </div>
 

@@ -23,7 +23,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion } from 'framer-motion'
 
-export default function Navigation() {
+export default function Navigation({ children }) {
   const pathname = usePathname()
   const [mounted, setMounted] = useState(false)
   const isHomePage = pathname === '/'
@@ -46,12 +46,15 @@ export default function Navigation() {
   }
 
   return (
-    <nav className="fixed top-4 right-4 z-50">
+    <nav className="fixed top-4 right-4 z-50 flex items-center gap-3">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
+        className="flex gap-3"
       >
+        {children}
+
         {!isHomePage && (
           <Link
             href="/"

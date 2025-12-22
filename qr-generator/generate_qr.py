@@ -83,7 +83,7 @@ def generate_qr_codes():
     
     # Data file priority: trees_update.json > trees.json
     # trees_update.json adalah source utama dengan konten lengkap
-    data_file = script_dir / 'data' / 'trees_update.json'
+    data_file = script_dir / 'data' / 'trees.json'
     if not data_file.exists():
         data_file = script_dir / 'data' / 'trees.json'
     
@@ -123,7 +123,7 @@ def generate_qr_codes():
     
     # Get base URL dari environment variable
     # Fallback ke default untuk development
-    base_url = os.getenv('NEXT_PUBLIC_BASE_URL', 'https://iqra-project.vercel.app')
+    base_url = os.getenv('NEXT_PUBLIC_BASE_URL', 'https://iqra-fixing.vercel.app')
     
     # URL validation dan sanitization
     if not validate_url(base_url):

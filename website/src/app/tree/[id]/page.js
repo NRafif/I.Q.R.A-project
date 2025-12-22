@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, use } from 'react'
 import { motion, useScroll } from 'framer-motion'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 import ScrollProgress from '@/components/ScrollProgress'
 import Navigation from '@/components/Navigation'
 import JournalCard from '@/components/JournalCard'
@@ -82,7 +83,7 @@ export default function TreePage({ params }) {
         setCurrentSection('root')
       } else if (scrollPercent > 0.40) {
         setCurrentSection('trunk')
-        const trunkCards = tree?.content?.trunk_section?.length || 1
+        const trunkCards = tree?.story_mode?.trunk_section?.length || 1
         const trunkProgress = (scrollPercent - 0.40) / 0.55
         setActiveTrunkCard(Math.min(Math.floor(trunkProgress * trunkCards), trunkCards - 1))
       } else if (scrollPercent > 0.2) {
@@ -116,7 +117,7 @@ export default function TreePage({ params }) {
     )
   }
 
-  const currentTrunkData = tree.content?.trunk_section?.[activeTrunkCard]
+  const currentTrunkData = tree.story_mode?.trunk_section?.[activeTrunkCard]
   const isInsight = currentTrunkData?.type?.toLowerCase().includes('islamic') ||
     currentTrunkData?.type?.toLowerCase().includes('insight') ||
     currentTrunkData?.type?.toLowerCase().includes('religius')
@@ -127,7 +128,18 @@ export default function TreePage({ params }) {
       className={`relative transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
       suppressHydrationWarning
     >
-      <Navigation />
+      <Navigation>
+        <Link
+          href={`/tree/${id}/lens`}
+          className="glass-dark rounded-full px-4 py-2 flex items-center gap-2 text-white hover:bg-white/20 transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-forest-400 focus:ring-offset-2 focus:ring-offset-transparent"
+        >
+          <span className="text-sm font-medium">Mode Lensa</span>
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+          </svg>
+        </Link>
+      </Navigation>
       <ScrollProgress progress={scrollYProgress} />
 
       {/* ===== FIXED IDENTITY CARD (TOP-LEFT) ===== */}
@@ -137,7 +149,7 @@ export default function TreePage({ params }) {
           badgeText={tree.family}
           title={tree.common_name}
           subtitle={tree.scientific_name}
-          tags={[tree.family, tree.location]}
+          tags={[tree.family]}
         />
       </div>
 
@@ -149,8 +161,8 @@ export default function TreePage({ params }) {
               <JournalCard
                 variant="ecology"
                 icon="🌿"
-                title={tree.content?.canopy_section?.title || 'Manfaat Ekologis'}
-                content={tree.content?.canopy_section?.description}
+                title={tree.story_mode?.canopy_section?.title || 'Manfaat Ekologis'}
+                content={tree.story_mode?.canopy_section?.description}
                 tags={["Habitat", "Nektar", "Oksigen"]}
               />
             </motion.div>
@@ -173,7 +185,7 @@ export default function TreePage({ params }) {
                 variant="root"
                 badgeText="🌱 Mulai Dari Sini"
                 title={tree.common_name}
-                content={tree.content?.root_section?.description}
+                content={tree.story_mode?.root_section?.description}
               />
             </motion.div>
           )}
@@ -183,7 +195,7 @@ export default function TreePage({ params }) {
       {/* Trunk card indicator */}
       {currentSection === 'trunk' && (
         <div className="fixed right-8 top-1/2 -translate-y-1/2 z-30 flex flex-col gap-3">
-          {(tree.content?.trunk_section || []).map((_, idx) => (
+          {(tree.story_mode?.trunk_section || []).map((_, idx) => (
             <div
               key={idx}
               className={`w-3 h-3 rounded-full transition-all ${activeTrunkCard === idx ? 'bg-[#2d5a3c] scale-125' : 'bg-[#2d5a3c]/30'}`}
@@ -201,10 +213,10 @@ export default function TreePage({ params }) {
           viewport={{ once: true }}
         >
           <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl italic font-medium text-[#2d5a3c] mb-6">
-            {tree.content?.sky_section?.headline}
+            {tree.story_mode?.sky_section?.headline}
           </h2>
           <p className="font-serif text-lg md:text-xl italic text-[#2d5a3c]/70 leading-relaxed max-w-3xl mx-auto">
-            "{tree.content?.sky_section?.sub_headline}"
+            "{tree.story_mode?.sky_section?.sub_headline}"
           </p>
         </motion.div>
       </section>

@@ -32,30 +32,30 @@ export async function loadTreesData() {
       const { loadTreesDataServer } = await import('./data-server')
       return await loadTreesDataServer()
     }
-    
+
     // Client-side: use fetch API
     // Menggunakan window.location.origin untuk absolute URL
     // Mencegah issues dengan relative URLs di production
     const baseUrl = window.location.origin
-    const response = await fetch(`${baseUrl}/data/trees.json`, { 
+    const response = await fetch(`${baseUrl}/data/trees.json`, {
       cache: 'no-store', // Always fetch fresh data
       headers: {
         'Accept': 'application/json',
       },
     })
-    
+
     if (!response.ok) {
       throw new Error(`Failed to load trees data: ${response.status} ${response.statusText}`)
     }
-    
+
     const data = await response.json()
-    
+
     // Type validation: memastikan response adalah array
     // Mencegah jika server mengembalikan object atau tipe lain
     if (!Array.isArray(data)) {
       throw new Error('Invalid data format: expected array')
     }
-    
+
     return data
   } catch (error) {
     // Graceful error handling: return empty array instead of throwing
@@ -80,13 +80,13 @@ export async function getTreeById(id, treesData = null) {
     // Input sanitization: validasi ID sebelum digunakan
     // Mencegah injection attacks dan invalid input
     const sanitizedId = sanitizeTreeId(id)
-    
+
     if (!sanitizedId) {
       return null
     }
-    
+
     let trees = treesData
-    
+
     if (!trees) {
       // Environment detection untuk optimal path
       if (typeof window === 'undefined') {
@@ -97,11 +97,11 @@ export async function getTreeById(id, treesData = null) {
       // Client-side: fetch data
       trees = await loadTreesData()
     }
-    
+
     // Find dengan strict equality untuk type safety
     // Menggunakan sanitizedId yang sudah divalidasi
     const tree = trees.find(t => t.id === sanitizedId)
-    
+
     return tree || null
   } catch (error) {
     // Error handling: return null untuk graceful degradation
@@ -128,40 +128,40 @@ export function validateTreeData(tree) {
   if (!tree || typeof tree !== 'object' || Array.isArray(tree)) {
     return false
   }
-  
+
   // Required fields untuk tree object
-  // Setiap field diperlukan untuk rendering UI yang proper
-  const requiredFields = ['id', 'common_name', 'scientific_name', 'family', 'location', 'content']
-  
-  // Check required fields dengan hasOwnProperty untuk strict check
-  // Menggunakan 'in' operator untuk check existence
+  const requiredFields = ['id', 'common_name', 'scientific_name', 'family', 'location', 'story_mode', 'anatomy_mode']
+
+  // Check required fields
   for (const field of requiredFields) {
     if (!(field in tree)) {
       return false
     }
   }
-  
-  // Validate content structure
-  // Content adalah nested object dengan struktur spesifik
-  if (!tree.content || typeof tree.content !== 'object' || Array.isArray(tree.content)) {
+
+  // Validate story_mode structure
+  if (!tree.story_mode || typeof tree.story_mode !== 'object' || Array.isArray(tree.story_mode)) {
     return false
   }
-  
-  // Required fields untuk content object
-  // Setiap section diperlukan untuk UX "Ground-to-Sky"
-  const requiredContentFields = ['sky_section', 'canopy_section', 'trunk_section', 'root_section']
-  
-  for (const field of requiredContentFields) {
-    if (!(field in tree.content)) {
+
+  // Required fields untuk story_mode object
+  const requiredStoryFields = ['sky_section', 'canopy_section', 'trunk_section', 'root_section']
+
+  for (const field of requiredStoryFields) {
+    if (!(field in tree.story_mode)) {
       return false
     }
   }
-  
+
   return true
 }
 
 /**
  * Get default/fallback tree data
+ * 
+ * Menggunakan struktur story_mode dan anatomy_mode yang konsisten
+ * dengan validateTreeData function.
+ * 
  * @returns {Object} Default tree object
  */
 export function getDefaultTree() {
@@ -171,7 +171,7 @@ export function getDefaultTree() {
     scientific_name: 'Unknown species',
     family: 'Unknown',
     location: 'Tidak diketahui',
-    content: {
+    story_mode: {
       sky_section: {
         headline: 'Pohon Tidak Ditemukan',
         sub_headline: 'Maaf, informasi pohon yang Anda cari tidak tersedia dalam database kami.'
@@ -190,6 +190,10 @@ export function getDefaultTree() {
       root_section: {
         description: 'Data pohon tidak tersedia.'
       }
+    },
+    anatomy_mode: {
+      description: 'Informasi anatomi tidak tersedia.',
+      hotspots: []
     }
   }
 }

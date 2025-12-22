@@ -1,19 +1,135 @@
 [
-  {"id":1,"common_name":"Rambutan","scientific_name":"Nephelium lappaceum L.","family":"Sapindaceae","location":"Parkiran"},
-  {"id":2,"common_name":"Ketapang Kencana","scientific_name":"Terminalia mantaly","family":"Combretaceae","location":"Parkiran + Lapangan"},
-  {"id":3,"common_name":"Palem Putri","scientific_name":"Veitchia merrillii","family":"Arecaceae","location":"Parkiran"},
-  {"id":4,"common_name":"Bunga Sepatu","scientific_name":"Hibiscus rosa-sinensis","family":"Malvaceae","location":"Parkiran"},
-  {"id":5,"common_name":"Kamboja Kuning","scientific_name":"Plumeria rubra 'Lutea'","family":"Apocynaceae","location":"Lapangan"},
-  {"id":6,"common_name":"Tabebuya Kuning","scientific_name":"Handroanthus chrysotrichus","family":"Bignoniaceae","location":"Lapangan"},
-  {"id":7,"common_name":"Ixora Merah","scientific_name":"Ixora coccinea","family":"Rubiaceae","location":"Lapangan + Taman"},
-  {"id":8,"common_name":"Nusa Putih Indah","scientific_name":"Mussaenda sp.","family":"Rubiaceae","location":"Lapangan"},
-  {"id":9,"common_name":"Gardenia / Kaca Piring","scientific_name":"Gardenia jasminoides","family":"Rubiaceae","location":"Lapangan"},
-  {"id":10,"common_name":"Pucuk Merah","scientific_name":"Syzygium myrtifolium","family":"Myrtaceae","location":"Lapangan"},
-  {"id":11,"common_name":"Bunga Kertas","scientific_name":"Bougainvillea spectabilis","family":"Nyctaginaceae","location":"Lapangan"},
-  {"id":12,"common_name":"Aralera / Palem Kuning","scientific_name":"Dypsis lutescens","family":"Arecaceae","location":"Lapangan"},
-  {"id":13,"common_name":"Pohon Pelangi","scientific_name":"Eucalyptus deglupta","family":"Myrtaceae","location":"Lapangan + Taman"},
-  {"id":14,"common_name":"Sambang Dara","scientific_name":"Excoecaria cochinchinensis","family":"Euphorbiaceae","location":"Taman"},
-  {"id":15,"common_name":"Cempedak","scientific_name":"Artocarpus integer","family":"Moraceae","location":"Taman"},
-  {"id":16,"common_name":"Anting Putri","scientific_name":"Wrightia religiosa","family":"Apocynaceae","location":"Taman"},
-  {"id":17,"common_name":"Antidisentri / Asam Belanda","scientific_name":"Pithecellobium dulce","family":"Fabaceae","location":"Taman"}
+  {
+    "id": 1,
+    "common_name": "Rambutan",
+    "scientific_name": "Nephelium lappaceum L.",
+    "family": "Sapindaceae",
+    "location": "Parkiran"
+  },
+  {
+    "id": 2,
+    "common_name": "Ketapang Kencana",
+    "scientific_name": "Terminalia mantaly",
+    "family": "Combretaceae",
+    "location": "Parkiran + Lapangan"
+  },
+  {
+    "id": 3,
+    "common_name": "Palem Putri",
+    "scientific_name": "Veitchia merrillii",
+    "family": "Arecaceae",
+    "location": "Parkiran"
+  },
+  {
+    "id": 4,
+    "common_name": "Bunga Sepatu",
+    "scientific_name": "Hibiscus rosa-sinensis",
+    "family": "Malvaceae",
+    "location": "Parkiran"
+  },
+  {
+    "id": 5,
+    "common_name": "Kamboja Kuning",
+    "scientific_name": "Plumeria rubra 'Lutea'",
+    "family": "Apocynaceae",
+    "location": "Lapangan"
+  },
+  {
+    "id": 6,
+    "common_name": "Tabebuya Kuning",
+    "scientific_name": "Handroanthus chrysotrichus",
+    "family": "Bignoniaceae",
+    "location": "Lapangan"
+  },
+  {
+    "id": 7,
+    "common_name": "Ixora Merah",
+    "scientific_name": "Ixora coccinea",
+    "family": "Rubiaceae",
+    "location": "Lapangan + Taman"
+  },
+  {
+    "id": 8,
+    "common_name": "Nusa Putih Indah",
+    "scientific_name": "Mussaenda sp.",
+    "family": "Rubiaceae",
+    "location": "Lapangan"
+  },
+  {
+    "id": 9,
+    "common_name": "Gardenia / Kaca Piring",
+    "scientific_name": "Gardenia jasminoides",
+    "family": "Rubiaceae",
+    "location": "Lapangan"
+  },
+  {
+    "id": 10,
+    "common_name": "Pucuk Merah",
+    "scientific_name": "Syzygium myrtifolium",
+    "family": "Myrtaceae",
+    "location": "Lapangan"
+  },
+  {
+    "id": 11,
+    "common_name": "Bunga Kertas",
+    "scientific_name": "Bougainvillea spectabilis",
+    "family": "Nyctaginaceae",
+    "location": "Lapangan"
+  },
+  {
+    "id": 12,
+    "common_name": "Aralera / Palem Kuning",
+    "scientific_name": "Dypsis lutescens",
+    "family": "Arecaceae",
+    "location": "Lapangan"
+  },
+  {
+    "id": 13,
+    "common_name": "Pohon Pelangi",
+    "scientific_name": "Eucalyptus deglupta",
+    "family": "Myrtaceae",
+    "location": "Lapangan + Taman"
+  },
+  {
+    "id": 14,
+    "common_name": "Sambang Dara",
+    "scientific_name": "Excoecaria cochinchinensis",
+    "family": "Euphorbiaceae",
+    "location": "Taman"
+  },
+  {
+    "id": 15,
+    "common_name": "Cempedak",
+    "scientific_name": "Artocarpus integer",
+    "family": "Moraceae",
+    "location": "Taman"
+  },
+  {
+    "id": 16,
+    "common_name": "Anting Putri",
+    "scientific_name": "Wrightia religiosa",
+    "family": "Apocynaceae",
+    "location": "Taman"
+  },
+  {
+    "id": 17,
+    "common_name": "Antidisentri / Asam Belanda",
+    "scientific_name": "Pithecellobium dulce",
+    "family": "Fabaceae",
+    "location": "Taman"
+  },
+  {
+    "id": 18,
+    "common_name": "Kumis Kucing",
+    "scientific_name": "Orthosiphon aristatus",
+    "family": "Lamiaceae",
+    "location": "Taman"
+  },
+  {
+    "id": 19,
+    "common_name": "Giant Bromeliad",
+    "scientific_name": "Alcantarea imperialis",
+    "family": "Bromeliaceae",
+    "location": "Taman"
+  }
 ]

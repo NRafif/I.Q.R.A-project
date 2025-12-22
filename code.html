@@ -1,348 +1,222 @@
 <!DOCTYPE html>
-<html lang="id"><head>
+<html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>I.Q.R.A - Intelligent Quick-Response Arboretum</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<title>I.Q.R.A. - Anatomy View</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script>
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        primary: "#2d5a3c", // Elegant muted green
-                        secondary: "#4a7c59", // Softer green
-                        accent: "#8da399", // Sage green for subtle accents
-                        "bg-light": "#ffffff", 
-                        "bg-subtle": "#f8f9fa",
-                        "text-main": "#1a1a1a",
-                        "text-muted": "#6b7280",
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
-                    },
-                    borderRadius: {
-                        DEFAULT: "0.25rem",
-                        'xl': "1rem",
-                        '2xl': "1.5rem",
-                    },
-                    boxShadow: {
-                        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
-                    }
-                },
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#13ec25",
+              "background-light": "#F5F7F5",
+              "background-dark": "#102212",
+              "dark-text": "#0d1b0f",
+              "subtle-border": "#e7f3e8",
             },
-        };
+            fontFamily: {
+              "display": ["Space Grotesk", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            animation: {
+                'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                'ping-slow': 'ping 2s cubic-bezier(0, 0, 0.2, 1) infinite',
+            }
+          },
+        },
+      }
     </script>
 <style>
-        ::-webkit-scrollbar {
-            width: 8px;
+        .schematic-line-left {
+            position: absolute;
+            height: 1px;
+            background-color: #13ec25;
+            transform-origin: right center;
+            opacity: 0.6;
         }
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
+        .schematic-line-right {
+            position: absolute;
+            height: 1px;
+            background-color: #13ec25;
+            transform-origin: left center;
+            opacity: 0.6;
         }
-        ::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 4px;
+        .bg-grid-pattern {
+            background-image: radial-gradient(#d1d5db 1px, transparent 1px);
+            background-size: 20px 20px;
         }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #94a3b8;
+        .group:hover .schematic-line {
+            width: 100px;opacity: 1;
         }
-        .text-vertical {
-            writing-mode: vertical-rl;
-            text-orientation: mixed;
+        @media (max-width: 768px) {
+            .group:hover .schematic-line {
+                width: 40px;
+            }
         }
     </style>
 </head>
-<body class="bg-bg-light text-text-main font-sans antialiased transition-colors duration-300">
-<nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 py-4">
-<div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-<div class="font-serif text-2xl font-bold text-primary tracking-wide">I.Q.R.A.</div>
-<div class="hidden md:flex space-x-8 text-sm font-medium text-text-main">
-<a class="hover:text-primary transition-colors" href="#">Beranda</a>
-<a class="hover:text-primary transition-colors" href="#">Koleksi</a>
-<a class="hover:text-primary transition-colors" href="#">Tentang</a>
+<body class="bg-background-light dark:bg-background-dark font-display h-screen w-screen overflow-hidden flex flex-col relative text-dark-text selection:bg-primary/30">
+<div class="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none z-0"></div>
+<div class="absolute top-6 left-6 w-16 h-16 border-l-2 border-t-2 border-dark-text/20 pointer-events-none z-0"></div>
+<div class="absolute top-6 right-6 w-16 h-16 border-r-2 border-t-2 border-dark-text/20 pointer-events-none z-0"></div>
+<div class="absolute bottom-6 left-6 w-16 h-16 border-l-2 border-b-2 border-dark-text/20 pointer-events-none z-0"></div>
+<div class="absolute bottom-6 right-6 w-16 h-16 border-r-2 border-b-2 border-dark-text/20 pointer-events-none z-0"></div>
+<header class="relative z-20 flex items-center justify-between px-10 py-5 border-b border-dark-text/5 bg-background-light/80 backdrop-blur-sm">
+<div class="flex items-center gap-4 text-dark-text">
+<div class="size-6 text-primary">
+<span class="material-symbols-outlined !text-[24px]">science</span>
 </div>
-<button class="md:hidden text-text-main">
-<span class="material-icons">menu</span>
-</button>
+<h2 class="text-dark-text text-xl font-bold leading-tight tracking-wider uppercase">I.Q.R.A. <span class="text-dark-text/40 font-light mx-2">|</span> The Lens</h2>
 </div>
-</nav>
-<header class="relative min-h-screen flex items-center justify-center overflow-hidden bg-bg-light pt-20">
-<div class="absolute top-0 right-0 w-1/3 h-full bg-bg-subtle -z-10 hidden lg:block"></div>
-<div class="max-w-7xl mx-auto w-full px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-<div class="space-y-8 order-2 lg:order-1 text-center lg:text-left">
-<div class="space-y-4">
-<span class="inline-block py-1 px-3 border border-primary/20 rounded-full text-xs font-semibold tracking-wider text-primary uppercase">Arboretum Digital</span>
-<h1 class="font-serif text-6xl md:text-7xl lg:text-8xl font-medium leading-tight text-text-main">
-                        Intelligent <br/>
-<span class="text-primary italic">Arboretum</span>
-</h1>
-<p class="text-text-muted text-lg md:text-xl font-light max-w-lg mx-auto lg:mx-0 leading-relaxed">
-                        "Bacalah" — Mengubah pohon yang diam menjadi berbicara. Sebuah eksplorasi botani melalui lensa teknologi modern.
-                    </p>
-</div>
-<div class="flex flex-col sm:flex-row gap-5 justify-center lg:justify-start pt-4">
-<button class="bg-primary hover:bg-secondary text-white font-medium py-4 px-10 rounded-full transition-all duration-300 shadow-soft hover:shadow-lg transform hover:-translate-y-0.5 tracking-wide">
-                        Jelajahi Koleksi
-                    </button>
-<button class="group flex items-center gap-2 text-text-main font-medium py-4 px-8 rounded-full transition-all hover:text-primary">
-<span>Tentang Proyek</span>
-<span class="material-icons text-sm transform group-hover:translate-x-1 transition-transform">arrow_forward</span>
-</button>
-</div>
-<div class="pt-12 flex items-center justify-center lg:justify-start gap-12 border-t border-gray-100 mt-12 w-full max-w-md mx-auto lg:mx-0">
-<div>
-<p class="font-serif text-3xl font-bold text-text-main">17</p>
-<p class="text-xs text-text-muted uppercase tracking-wider mt-1">Spesies Tanaman</p>
-</div>
-<div>
-<p class="font-serif text-3xl font-bold text-text-main">24/7</p>
-<p class="text-xs text-text-muted uppercase tracking-wider mt-1">Akses Digital</p>
-</div>
-</div>
-</div>
-<div class="relative order-1 lg:order-2 flex justify-center items-center h-[50vh] lg:h-auto">
-<div class="absolute w-[80%] h-[80%] rounded-full bg-secondary/5 blur-3xl -z-10"></div>
-<img alt="Majestic Tree Silhouette" class="w-full max-w-md lg:max-w-lg object-contain drop-shadow-2xl transform hover:scale-105 transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4Z8Lw_LRADLYdAt_xhZDWe4qDcGeVjS_Fr_GJNASk7qDzP2BgaOFWFDzxwoiix1Me4GrawOYCnRHOF6v6CNcipJyto9-N09DYHPq0mTE1eqt-kxYM-HZBTrbemK0BWTVdNtg-J51xC21bhbzmcPk9d06Y0-nopMZGwC3cpXwJFNHIqRCc3uNIcaHQ-SPFP4ybaCXe5GN2MATvT2loUeLGRhamjxd1_s4iWAGTZwZr-39Hpah2S_FdPHKFW6eryJt2zunoa_WbuSE" style="filter: brightness(1.05) contrast(1.05);"/>
-<div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl hidden md:block animate-bounce" style="animation-duration: 3s;">
-<div class="flex items-center gap-3">
-<div class="bg-green-100 p-2 rounded-full text-primary">
-<span class="material-symbols-outlined">qr_code_scanner</span>
-</div>
-<div>
-<p class="text-xs text-gray-500">Scan &amp; Learn</p>
-<p class="font-bold text-sm text-primary">Instant Info</p>
-</div>
-</div>
-</div>
-</div>
+<div class="flex gap-3">
+<button class="flex items-center justify-center rounded-lg h-9 bg-white border border-subtle-border hover:border-primary text-dark-text gap-2 text-xs font-bold uppercase tracking-widest px-4 transition-colors">
+<span class="material-symbols-outlined !text-[18px]">settings</span>
+                Config
+            </button>
+<button class="flex items-center justify-center rounded-lg h-9 bg-white border border-subtle-border hover:border-primary text-dark-text gap-2 text-xs font-bold uppercase tracking-widest px-4 transition-colors">
+<span class="material-symbols-outlined !text-[18px]">help</span>
+                Help
+            </button>
 </div>
 </header>
-<section class="py-32 px-6 bg-white">
-<div class="max-w-7xl mx-auto">
-<div class="text-center mb-20">
-<span class="text-primary text-sm font-semibold tracking-[0.2em] uppercase block mb-3">Flora Library</span>
-<h2 class="font-serif text-4xl md:text-5xl font-medium text-text-main mb-6">Koleksi Pohon</h2>
-<div class="w-16 h-0.5 bg-primary/30 mx-auto"></div>
-<p class="text-text-muted mt-6 max-w-xl mx-auto font-light">
-                    Menjelajahi keanekaragaman hayati di sekitar kita. Setiap spesies memiliki cerita, manfaat, dan filosofi yang unik.
-                </p>
+<main class="relative z-10 flex-1 flex flex-col items-center justify-center w-full max-w-7xl mx-auto px-6">
+<div class="w-full flex justify-between items-end mb-4 border-b border-dashed border-dark-text/20 pb-4">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 bg-primary/20 text-dark-text text-[10px] font-bold uppercase tracking-widest rounded text-green-900 border border-primary/40">Specimen FB-294-X</span>
+<span class="px-2 py-0.5 bg-gray-100 text-gray-500 text-[10px] font-bold uppercase tracking-widest rounded border border-gray-200">Moraceae</span>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-<div class="group bg-white rounded-2xl p-8 border border-gray-100 hover:border-primary/20 hover:shadow-soft transition-all duration-500">
-<div class="flex justify-between items-start mb-6">
-<span class="font-serif text-4xl text-gray-100 group-hover:text-primary/10 transition-colors">01</span>
-<span class="text-[10px] font-bold tracking-widest uppercase bg-gray-50 px-3 py-1 rounded-full text-gray-500">Parkiran</span>
+<h1 class="text-4xl md:text-5xl font-bold tracking-tight text-dark-text mt-1">Ficus Benjamina</h1>
+<p class="text-gray-500 font-medium italic">Weeping Fig</p>
 </div>
-<div class="mb-6 h-48 overflow-hidden rounded-lg bg-gray-50 relative">
-<div class="absolute inset-0 bg-primary/5 flex items-center justify-center group-hover:scale-105 transition-transform duration-700">
-<span class="material-symbols-outlined text-6xl text-primary/20">spa</span>
+<div class="flex gap-6">
+<div class="flex flex-col items-end">
+<span class="text-[10px] uppercase tracking-widest text-gray-400">Health Status</span>
+<span class="text-lg font-bold text-primary flex items-center gap-1">
+<span class="material-symbols-outlined !text-[16px]">check_circle</span> Optimal
+                    </span>
 </div>
+<div class="flex flex-col items-end">
+<span class="text-[10px] uppercase tracking-widest text-gray-400">Carbon Offset</span>
+<span class="text-lg font-bold text-dark-text">45 kg/yr</span>
 </div>
-<h3 class="font-serif text-2xl font-bold text-text-main mb-1 group-hover:text-primary transition-colors">Rambutan</h3>
-<p class="text-sm font-serif italic text-text-muted mb-4">Nephelium lappaceum L.</p>
-<div class="space-y-3 pt-4 border-t border-gray-100">
-<p class="text-xs font-bold text-primary tracking-wide uppercase">The Hairy Sweetness</p>
-<p class="text-sm text-gray-500 leading-relaxed line-clamp-3">
-                            Di balik penampilannya yang liar dan berantakan, tersimpan kemanisan yang murni. Pengingat alami...
-                        </p>
-</div>
-<a class="inline-block mt-6 text-sm font-medium text-text-main hover:text-primary transition-colors border-b border-transparent hover:border-primary pb-0.5" href="#">Lihat Detail</a>
-</div>
-<div class="group bg-white rounded-2xl p-8 border border-gray-100 hover:border-primary/20 hover:shadow-soft transition-all duration-500">
-<div class="flex justify-between items-start mb-6">
-<span class="font-serif text-4xl text-gray-100 group-hover:text-primary/10 transition-colors">02</span>
-<span class="text-[10px] font-bold tracking-widest uppercase bg-gray-50 px-3 py-1 rounded-full text-gray-500">Parkiran +</span>
-</div>
-<div class="mb-6 h-48 overflow-hidden rounded-lg bg-gray-50 relative">
-<div class="absolute inset-0 bg-primary/5 flex items-center justify-center group-hover:scale-105 transition-transform duration-700">
-<span class="material-symbols-outlined text-6xl text-primary/20">park</span>
+<div class="flex flex-col items-end">
+<span class="text-[10px] uppercase tracking-widest text-gray-400">Est. Age</span>
+<span class="text-lg font-bold text-dark-text">12 Yrs</span>
 </div>
 </div>
-<h3 class="font-serif text-2xl font-bold text-text-main mb-1 group-hover:text-primary transition-colors">Ketapang Kencana</h3>
-<p class="text-sm font-serif italic text-text-muted mb-4">Terminalia mantaly</p>
-<div class="space-y-3 pt-4 border-t border-gray-100">
-<p class="text-xs font-bold text-primary tracking-wide uppercase">The Natural Parasol</p>
-<p class="text-sm text-gray-500 leading-relaxed line-clamp-3">
-                            Arsitektur alam yang sempurna untuk perlindungan. Tajuknya yang berlapis mengajarkan kita seni...
-                        </p>
 </div>
-<a class="inline-block mt-6 text-sm font-medium text-text-main hover:text-primary transition-colors border-b border-transparent hover:border-primary pb-0.5" href="#">Lihat Detail</a>
+<div class="relative w-full flex-1 flex items-center justify-center min-h-[400px]">
+<div class="relative h-[80%] aspect-[3/4] md:aspect-square flex items-center justify-center">
+<img alt="Full body isolated tree transparent background" class="h-full w-full object-contain mix-blend-darken filter saturate-[0.85] contrast-[1.1] opacity-90 drop-shadow-xl mask-image-gradient" data-alt="A large, healthy Ficus Benjamina tree with dense green foliage and a sturdy trunk, isolated against a transparent background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeR1kOm6bHoItizlxWfkrOYhKJQi_8Z9A3Trlb6IHbeJxolEyiT86_pbaMKIPVG_VK6vJtQ94-DhZs1OYWk563jL7xUTrALuIcBHdztTlr1Zdh9gLXTT9-i9AemjEwVszgYSn1uk8uRKXL8ncOOmpzPsUsTk6lvffx2Q8e5vZxOS1ok9bt5-Ocua-72ALiI2Jzx5pRxzZhqICWeIAwS3o9X6BHAVxaCedMw4-7disSykpYsfpt8HQopyhnp3SgSu0pxd4Q6Zit9zA" style="-webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);"/>
 </div>
-<div class="group bg-white rounded-2xl p-8 border border-gray-100 hover:border-primary/20 hover:shadow-soft transition-all duration-500">
-<div class="flex justify-between items-start mb-6">
-<span class="font-serif text-4xl text-gray-100 group-hover:text-primary/10 transition-colors">03</span>
-<span class="text-[10px] font-bold tracking-widest uppercase bg-gray-50 px-3 py-1 rounded-full text-gray-500">Parkiran</span>
+<div class="absolute top-[25%] left-[30%] group z-40">
+<div class="relative flex items-center justify-center cursor-pointer">
+<span class="relative inline-flex rounded-full h-3 w-3 bg-primary z-10 border border-white shadow-lg scale-125 transition-transform"></span>
+<span class="animate-ping-slow absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="animate-pulse-slow absolute inline-flex h-6 w-6 rounded-full bg-primary/30 opacity-50"></span>
+<div class="absolute right-full top-1/2 h-[1px] w-12 md:w-32 bg-dark-text/80 opacity-100 origin-right transition-opacity duration-300"></div>
+<div class="absolute right-[calc(100%+3rem)] md:right-[calc(100%+8rem)] top-1/2 -translate-y-1/2 w-64 bg-white/95 backdrop-blur border-l-2 border-primary shadow-lg rounded-r-md p-4 opacity-100 translate-x-0 transition-all duration-300">
+<div class="flex items-center gap-2 mb-2 border-b border-gray-100 pb-2">
+<span class="material-symbols-outlined text-primary !text-[18px]">eco</span>
+<h4 class="text-xs font-bold uppercase tracking-wider text-dark-text">Leaf (Daun)</h4>
 </div>
-<div class="mb-6 h-48 overflow-hidden rounded-lg bg-gray-50 relative">
-<div class="absolute inset-0 bg-primary/5 flex items-center justify-center group-hover:scale-105 transition-transform duration-700">
-<span class="material-symbols-outlined text-6xl text-primary/20">forest</span>
-</div>
-</div>
-<h3 class="font-serif text-2xl font-bold text-text-main mb-1 group-hover:text-primary transition-colors">Palem Putri</h3>
-<p class="text-sm font-serif italic text-text-muted mb-4">Veitchia merrillii</p>
-<div class="space-y-3 pt-4 border-t border-gray-100">
-<p class="text-xs font-bold text-primary tracking-wide uppercase">The Christmas Palm</p>
-<p class="text-sm text-gray-500 leading-relaxed line-clamp-3">
-                            Dinamai karena buah merahnya yang meriah di bulan Desember, palem ini membawa semangat perayaan...
-                        </p>
-</div>
-<a class="inline-block mt-6 text-sm font-medium text-text-main hover:text-primary transition-colors border-b border-transparent hover:border-primary pb-0.5" href="#">Lihat Detail</a>
-</div>
-<div class="group bg-white rounded-2xl p-8 border border-gray-100 hover:border-primary/20 hover:shadow-soft transition-all duration-500">
-<div class="flex justify-between items-start mb-6">
-<span class="font-serif text-4xl text-gray-100 group-hover:text-primary/10 transition-colors">04</span>
-<span class="text-[10px] font-bold tracking-widest uppercase bg-gray-50 px-3 py-1 rounded-full text-gray-500">Parkiran</span>
-</div>
-<div class="mb-6 h-48 overflow-hidden rounded-lg bg-gray-50 relative">
-<div class="absolute inset-0 bg-primary/5 flex items-center justify-center group-hover:scale-105 transition-transform duration-700">
-<span class="material-symbols-outlined text-6xl text-primary/20">local_florist</span>
+<ul class="text-[11px] text-gray-600 space-y-1.5 font-mono leading-relaxed">
+<li><span class="text-gray-400 font-bold uppercase tracking-wide mr-1">Bentuk:</span> Menyirip</li>
+<li><span class="text-gray-400 font-bold uppercase tracking-wide mr-1">Tekstur:</span> Halus</li>
+<li><span class="text-gray-400 font-bold uppercase tracking-wide mr-1">Fungsi:</span> Fotosintesis</li>
+</ul>
 </div>
 </div>
-<h3 class="font-serif text-2xl font-bold text-text-main mb-1 group-hover:text-primary transition-colors">Bunga Sepatu</h3>
-<p class="text-sm font-serif italic text-text-muted mb-4">Hibiscus rosa-sinensis</p>
-<div class="space-y-3 pt-4 border-t border-gray-100">
-<p class="text-xs font-bold text-primary tracking-wide uppercase">The Natural Shoe Polish</p>
-<p class="text-sm text-gray-500 leading-relaxed line-clamp-3">
-                           Lebih dari sekadar kelopak cantik. Sejarah membisikkan masa lalunya yang praktis di India,...
-                        </p>
 </div>
-<a class="inline-block mt-6 text-sm font-medium text-text-main hover:text-primary transition-colors border-b border-transparent hover:border-primary pb-0.5" href="#">Lihat Detail</a>
+<div class="absolute top-[35%] right-[32%] group">
+<div class="relative flex items-center justify-center cursor-pointer">
+<span class="relative inline-flex rounded-full h-3 w-3 bg-primary z-10 border border-white shadow-lg group-hover:scale-125 transition-transform"></span>
+<span class="animate-ping-slow absolute inline-flex h-full w-full rounded-full bg-primary opacity-75 animation-delay-200"></span>
+<span class="animate-pulse-slow absolute inline-flex h-6 w-6 rounded-full bg-primary/30 opacity-50 animation-delay-200"></span>
+<div class="absolute left-full top-1/2 h-[1px] w-12 md:w-28 bg-dark-text/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 origin-left"></div>
+<div class="absolute left-[calc(100%+3rem)] md:left-[calc(100%+7rem)] top-1/2 -translate-y-1/2 w-56 bg-white/95 backdrop-blur border-r-2 border-primary shadow-lg rounded-l-md p-3 opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 pointer-events-none group-hover:pointer-events-auto text-right">
+<div class="flex items-center justify-end gap-2 mb-1 border-b border-gray-100 pb-1">
+<h4 class="text-xs font-bold uppercase tracking-wider text-dark-text">Fruit (Buah)</h4>
+<span class="material-symbols-outlined text-primary !text-[16px]">nutrition</span>
 </div>
-<div class="group bg-white rounded-2xl p-8 border border-gray-100 hover:border-primary/20 hover:shadow-soft transition-all duration-500">
-<div class="flex justify-between items-start mb-6">
-<span class="font-serif text-4xl text-gray-100 group-hover:text-primary/10 transition-colors">05</span>
-<span class="text-[10px] font-bold tracking-widest uppercase bg-gray-50 px-3 py-1 rounded-full text-gray-500">Lapangan</span>
-</div>
-<div class="mb-6 h-48 overflow-hidden rounded-lg bg-gray-50 relative">
-<div class="absolute inset-0 bg-primary/5 flex items-center justify-center group-hover:scale-105 transition-transform duration-700">
-<span class="material-symbols-outlined text-6xl text-primary/20">filter_vintage</span>
-</div>
-</div>
-<h3 class="font-serif text-2xl font-bold text-text-main mb-1 group-hover:text-primary transition-colors">Kamboja Kuning</h3>
-<p class="text-sm font-serif italic text-text-muted mb-4">Plumeria rubra 'Lutea'</p>
-<div class="space-y-3 pt-4 border-t border-gray-100">
-<p class="text-xs font-bold text-primary tracking-wide uppercase">The Immortal Fragrance</p>
-<p class="text-sm text-gray-500 leading-relaxed line-clamp-3">
-                           Bunga yang menolak kehilangan esensinya. Bahkan ketika jatuh ke tanah, ia tetap menjaga wanginya,...
-                        </p>
-</div>
-<a class="inline-block mt-6 text-sm font-medium text-text-main hover:text-primary transition-colors border-b border-transparent hover:border-primary pb-0.5" href="#">Lihat Detail</a>
-</div>
-<div class="group bg-white rounded-2xl p-8 border border-gray-100 hover:border-primary/20 hover:shadow-soft transition-all duration-500">
-<div class="flex justify-between items-start mb-6">
-<span class="font-serif text-4xl text-gray-100 group-hover:text-primary/10 transition-colors">06</span>
-<span class="text-[10px] font-bold tracking-widest uppercase bg-gray-50 px-3 py-1 rounded-full text-gray-500">Lapangan</span>
-</div>
-<div class="mb-6 h-48 overflow-hidden rounded-lg bg-gray-50 relative">
-<div class="absolute inset-0 bg-primary/5 flex items-center justify-center group-hover:scale-105 transition-transform duration-700">
-<span class="material-symbols-outlined text-6xl text-primary/20">yard</span>
+<ul class="text-[10px] text-gray-600 space-y-1 font-mono">
+<li>Small, spherical figs <span class="text-gray-400">:TYPE</span></li>
+<li>Wasp pollination <span class="text-gray-400">:METHOD</span></li>
+<li>Turns red when ripe <span class="text-gray-400">:COLOR</span></li>
+</ul>
 </div>
 </div>
-<h3 class="font-serif text-2xl font-bold text-text-main mb-1 group-hover:text-primary transition-colors">Tabebuya Kuning</h3>
-<p class="text-sm font-serif italic text-text-muted mb-4">Handroanthus chrysotrichus</p>
-<div class="space-y-3 pt-4 border-t border-gray-100">
-<p class="text-xs font-bold text-primary tracking-wide uppercase">The Sakura of Tropics</p>
-<p class="text-sm text-gray-500 leading-relaxed line-clamp-3">
-                           Membawa keajaiban musim semi ke iklim tropis. Ketika panas menyerang, ia menjawabnya dengan...
-                        </p>
 </div>
-<a class="inline-block mt-6 text-sm font-medium text-text-main hover:text-primary transition-colors border-b border-transparent hover:border-primary pb-0.5" href="#">Lihat Detail</a>
+<div class="absolute top-[60%] left-[45%] group z-20">
+<div class="relative flex items-center justify-center cursor-pointer">
+<span class="relative inline-flex rounded-full h-3 w-3 bg-primary z-10 border border-white shadow-lg group-hover:scale-125 transition-transform"></span>
+<span class="animate-ping-slow absolute inline-flex h-full w-full rounded-full bg-primary opacity-75 animation-delay-500"></span>
+<span class="animate-pulse-slow absolute inline-flex h-6 w-6 rounded-full bg-primary/30 opacity-50 animation-delay-500"></span>
+<div class="absolute left-full top-1/2 h-[1px] w-12 md:w-32 bg-dark-text/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 origin-left"></div>
+<div class="absolute left-[calc(100%+3rem)] md:left-[calc(100%+8rem)] top-1/2 -translate-y-1/2 w-56 bg-white/95 backdrop-blur border-r-2 border-primary shadow-lg rounded-l-md p-3 opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 pointer-events-none group-hover:pointer-events-auto text-right">
+<div class="flex items-center justify-end gap-2 mb-1 border-b border-gray-100 pb-1">
+<h4 class="text-xs font-bold uppercase tracking-wider text-dark-text">Stem (Batang)</h4>
+<span class="material-symbols-outlined text-primary !text-[16px]">nature</span>
+</div>
+<ul class="text-[10px] text-gray-600 space-y-1 font-mono">
+<li>Light gray, Smooth <span class="text-gray-400">:BARK</span></li>
+<li>Drooping branches <span class="text-gray-400">:BRANCH</span></li>
+<li>Provides structure <span class="text-gray-400">:ROLE</span></li>
+</ul>
 </div>
 </div>
-<div class="text-center mt-16">
-<button class="inline-flex items-center gap-2 px-8 py-3 border border-gray-200 rounded-full hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 text-sm font-medium">
-<span>Lihat Semua Koleksi</span>
-<span class="material-symbols-outlined text-sm">arrow_downward</span>
+</div>
+<div class="absolute bottom-[10%] left-[38%] group">
+<div class="relative flex items-center justify-center cursor-pointer">
+<span class="relative inline-flex rounded-full h-3 w-3 bg-primary z-10 border border-white shadow-lg group-hover:scale-125 transition-transform"></span>
+<span class="animate-ping-slow absolute inline-flex h-full w-full rounded-full bg-primary opacity-75 animation-delay-1000"></span>
+<span class="animate-pulse-slow absolute inline-flex h-6 w-6 rounded-full bg-primary/30 opacity-50 animation-delay-1000"></span>
+<div class="absolute right-full top-1/2 h-[1px] w-12 md:w-28 bg-dark-text/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 origin-right"></div>
+<div class="absolute right-[calc(100%+3rem)] md:right-[calc(100%+7rem)] top-1/2 -translate-y-1/2 w-56 bg-white/95 backdrop-blur border-l-2 border-primary shadow-lg rounded-r-md p-3 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 pointer-events-none group-hover:pointer-events-auto">
+<div class="flex items-center gap-2 mb-1 border-b border-gray-100 pb-1">
+<span class="material-symbols-outlined text-primary !text-[16px]">water_drop</span>
+<h4 class="text-xs font-bold uppercase tracking-wider text-dark-text">Root (Akar)</h4>
+</div>
+<ul class="text-[10px] text-gray-600 space-y-1 font-mono">
+<li><span class="text-gray-400">TYPE:</span> Invasive Fibrous</li>
+<li><span class="text-gray-400">GRIP:</span> High Soil Stability</li>
+<li><span class="text-gray-400">DEPTH:</span> Shallow &amp; Spreading</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="relative z-30 pb-10 w-full flex justify-center">
+<button class="group relative inline-flex items-center gap-3 bg-white text-dark-text px-8 py-3 rounded-full border border-primary/40 hover:border-primary shadow-lg shadow-primary/10 hover:shadow-primary/30 transition-all duration-300">
+<span class="absolute inset-0 rounded-full bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+</span>
+<span class="relative text-sm font-bold tracking-wide">✨ Jelajahi Kisah &amp; Hikmahnya</span>
+<span class="material-symbols-outlined relative transition-transform group-hover:translate-x-1">arrow_forward</span>
 </button>
 </div>
+</main>
+<div class="absolute left-10 top-1/2 -translate-y-1/2 hidden lg:flex flex-col gap-6 text-[10px] text-gray-400 font-mono tracking-widest pointer-events-none select-none">
+<div class="w-1 h-24 bg-gradient-to-b from-transparent via-gray-300 to-transparent"></div>
+<div class="-rotate-90 origin-center whitespace-nowrap">SCALE 1:20</div>
+<div class="w-1 h-24 bg-gradient-to-b from-transparent via-gray-300 to-transparent"></div>
 </div>
-</section>
-<section class="py-32 bg-bg-subtle relative overflow-hidden">
-<div class="absolute left-0 top-0 w-64 h-64 bg-primary/5 rounded-br-full -z-0"></div>
-<div class="max-w-6xl mx-auto px-6 relative z-10">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-20">
-<div>
-<span class="text-primary text-sm font-semibold tracking-[0.2em] uppercase block mb-3">Tentang I.Q.R.A</span>
-<h2 class="font-serif text-4xl md:text-5xl font-medium text-text-main mb-6 leading-tight">Menjembatani Alam &amp; <br/>Teknologi</h2>
-<p class="text-text-muted text-lg font-light leading-relaxed">
-                         Proyek ini bertujuan untuk menciptakan interaksi bermakna antara manusia dan tumbuhan melalui integrasi QR Code dan informasi digital yang mendalam.
-                     </p>
+<div class="absolute right-10 top-1/2 -translate-y-1/2 hidden lg:flex flex-col gap-4 text-[10px] text-gray-400 font-mono tracking-widest pointer-events-none select-none">
+<div>LAT: 3.1415</div>
+<div>LNG: 101.6869</div>
+<div>ALT: 45M</div>
+<div class="h-px w-12 bg-gray-300 my-2"></div>
+<div>TEMP: 28°C</div>
+<div>HUM: 65%</div>
 </div>
-<div class="relative h-64 md:h-full bg-white rounded-2xl shadow-soft p-8 flex items-center justify-center">
-<img alt="Texture" class="absolute inset-0 w-full h-full object-cover rounded-2xl opacity-10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBl3lXYvB0ko6vVXqF6p26TlKOWp88FyvtYtzP3cn8OCLCLKk0Sd94kZs8VrqBLgsPsPCAMFAsD1DHixYlBBNGUnlJYar7hWHQapfHrbvx9GFSAYeCPYE1CxuA-Wz_mC5zOBEui4nyuGKylscLMi-FNCmph-ftWqC-JD3Yl4a_HodXb-1GIa8B2SLS5so07fz2m2Oc2AA9W-EgtM1LKfJR79eRuhWgMU5joZBvcjjbhzzxXwy5aaVdqCadqxWOzimzJJus_1HtVm9g"/>
-<p class="font-serif text-2xl text-center italic text-primary">"Alam tidak bisu, kita hanya perlu belajar bahasanya."</p>
-</div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-<div class="bg-white p-10 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 group border-t-4 border-transparent hover:border-primary">
-<div class="mb-6 w-14 h-14 bg-blue-50 rounded-full flex items-center justify-center group-hover:bg-blue-100 transition-colors">
-<span class="material-symbols-outlined text-3xl text-blue-600">biotech</span>
-</div>
-<h3 class="text-xl font-serif font-bold mb-3 text-text-main">Teknologi</h3>
-<p class="text-gray-500 text-sm leading-relaxed">
-                        Sistem identifikasi berbasis QR Code yang memberikan akses instan ke database botani komprehensif.
-                    </p>
-</div>
-<div class="bg-white p-10 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 group border-t-4 border-transparent hover:border-primary">
-<div class="mb-6 w-14 h-14 bg-amber-50 rounded-full flex items-center justify-center group-hover:bg-amber-100 transition-colors">
-<span class="material-symbols-outlined text-3xl text-amber-600">menu_book</span>
-</div>
-<h3 class="text-xl font-serif font-bold mb-3 text-text-main">Religius</h3>
-<p class="text-gray-500 text-sm leading-relaxed">
-                        Mengambil esensi "Iqra" — sebuah perintah fundamental untuk membaca, meneliti, dan memahami tanda-tanda alam.
-                    </p>
-</div>
-<div class="bg-white p-10 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 group border-t-4 border-transparent hover:border-primary">
-<div class="mb-6 w-14 h-14 bg-green-50 rounded-full flex items-center justify-center group-hover:bg-green-100 transition-colors">
-<span class="material-symbols-outlined text-3xl text-green-600">spa</span>
-</div>
-<h3 class="text-xl font-serif font-bold mb-3 text-text-main">Filosofis</h3>
-<p class="text-gray-500 text-sm leading-relaxed">
-                        Memberikan suara pada yang diam. Mengajak manusia untuk merenungi kebijaksanaan yang tumbuh dalam diam.
-                    </p>
-</div>
-</div>
-</div>
-</section>
-<footer class="bg-primary text-white py-20 border-t border-primary/10">
-<div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
-<div class="md:col-span-2">
-<h3 class="font-serif text-3xl font-bold mb-6">I.Q.R.A.</h3>
-<p class="text-white/70 max-w-sm leading-relaxed font-light">
-                    Intelligent Quick-Response Arboretum. Sebuah inisiatif digital untuk mendekatkan manusia dengan alam melalui teknologi dan edukasi.
-                </p>
-</div>
-<div>
-<h4 class="font-semibold mb-6 tracking-wider uppercase text-sm text-white/90">Navigasi</h4>
-<ul class="space-y-4 text-white/60 font-light">
-<li><a class="hover:text-white transition-colors" href="#">Beranda</a></li>
-<li><a class="hover:text-white transition-colors" href="#">Koleksi Pohon</a></li>
-<li><a class="hover:text-white transition-colors" href="#">Tentang Kami</a></li>
-<li><a class="hover:text-white transition-colors" href="#">Peta Lokasi</a></li>
-</ul>
-</div>
-<div>
-<h4 class="font-semibold mb-6 tracking-wider uppercase text-sm text-white/90">Kontak</h4>
-<ul class="space-y-4 text-white/60 font-light">
-<li class="flex items-center gap-3">
-<span class="material-icons text-sm">email</span>
-                        info@iqra-arboretum.id
-                    </li>
-<li class="flex items-center gap-3">
-<span class="material-icons text-sm">location_on</span>
-                        Kampus Hijau, Indonesia
-                    </li>
-</ul>
-</div>
-</div>
-<div class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-sm text-white/40">
-<p>© 2025 I.Q.R.A Project. All rights reserved.</p>
-<p class="mt-2 md:mt-0">Designed with nature in mind.</p>
-</div>
-</footer>
+
 </body></html>
