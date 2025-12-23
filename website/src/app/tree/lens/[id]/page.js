@@ -93,7 +93,7 @@ export default function LensPage({ params }) {
     const hotspots = anatomy.hotspots || []
 
     return (
-        <main className="relative h-screen w-screen overflow-hidden bg-[#F4F6F8] text-[#0d1b0f] font-sans selection:bg-[#13ec25]/30">
+        <main className="relative h-screen w-screen bg-[#F4F6F8] text-[#0d1b0f] font-sans selection:bg-[#13ec25]/30 overflow-x-auto overflow-y-hidden">
             {/* Background Grid Pattern */}
             <div className="absolute inset-0 z-0 opacity-30 pointer-events-none"
                 style={{ backgroundImage: 'radial-gradient(#d1d5db 1px, transparent 1px)', backgroundSize: '20px 20px' }}>
@@ -125,8 +125,8 @@ export default function LensPage({ params }) {
                 </div>
             </header>
 
-            {/* Main Content */}
-            <div className="relative z-10 flex-1 h-[calc(100vh-80px)] flex flex-col items-center justify-center p-6">
+            {/* Main Content - Scrollable container */}
+            <div className="relative z-10 flex-1 h-[calc(100vh-80px)] min-w-[120vw] md:min-w-[140vw] flex flex-col items-center justify-center px-[20vw] md:px-[30vw] py-6">
 
                 {/* Tree Header Info */}
                 <div className="absolute top-4 md:top-8 left-6 md:left-10 z-20 max-w-sm">
@@ -145,7 +145,7 @@ export default function LensPage({ params }) {
                     </p>
                 </div>
 
-                {/* Central Tree Image */}
+                {/* Central Tree Image - Wider container for hotspots */}
                 <div className="relative w-full h-[60vh] md:h-[70vh] flex items-center justify-center">
                     <div className="relative h-full aspect-[3/4] md:aspect-square flex items-center justify-center">
                         {/* Tree Background Image */}
