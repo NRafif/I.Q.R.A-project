@@ -10,6 +10,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 
 /**
  * TreeCard Component
@@ -23,7 +24,7 @@ function TreeCard({ tree, index }) {
             transition={{ delay: index * 0.05 }}
         >
             <Link
-                href={`/tree/${tree.id}/lens`}
+                href={`/tree/lens/${tree.id}`}
                 className="group block bg-white rounded-2xl p-8 border border-gray-100 hover:border-primary/20 hover:shadow-soft transition-all duration-500 h-full focus:outline-none focus:ring-2 focus:ring-primary/50"
                 aria-label={`Pelajari tentang ${tree.common_name} (${tree.scientific_name})`}
             >
@@ -37,11 +38,21 @@ function TreeCard({ tree, index }) {
                     </span>
                 </div>
 
-                {/* Icon placeholder */}
+                {/* Tree Thumbnail Image */}
                 <div className="mb-6 h-48 overflow-hidden rounded-lg bg-gray-50 relative">
-                    <div className="absolute inset-0 bg-primary/5 flex items-center justify-center group-hover:scale-105 transition-transform duration-700">
-                        <span className="text-6xl text-primary/20" aria-hidden="true">🌳</span>
-                    </div>
+                    {tree.assets?.thumbnail ? (
+                        <Image
+                            src={tree.assets.thumbnail}
+                            alt={tree.common_name}
+                            fill
+                            className="object-cover group-hover:scale-105 transition-transform duration-700"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        />
+                    ) : (
+                        <div className="absolute inset-0 bg-primary/5 flex items-center justify-center group-hover:scale-105 transition-transform duration-700">
+                            <span className="text-6xl text-primary/20" aria-hidden="true">🌳</span>
+                        </div>
+                    )}
                 </div>
 
                 {/* Tree info */}

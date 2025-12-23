@@ -7,9 +7,8 @@
         "origin": "Asia Tenggara",
         "location": "Parkiran",
         "assets": {
-            "image_full": "/assets/pohon/rambutan_full.png",
-            "image_leaf": "/assets/pohon/rambutan_leaf.jpg",
-            "image_bark": "/assets/pohon/rambutan_bark.jpg"
+            "thumbnail": "/assets/pohon/rambutan thumbnail.jpeg",
+            "background": "/assets/pohon/rambutan background.jpg"
         },
         "anatomy_mode": {
             "description": "Pohon buah tropis dengan kulit berambut unik yang menyembunyikan daging buah putih manis.",
@@ -17,19 +16,28 @@
                 {
                     "part": "Morphology",
                     "label": "Morfologi Daun",
-                    "position": "top-right",
+                    "position": {
+                        "x": 50.6,
+                        "y": 36.3
+                    },
                     "text": "Daun majemuk menyirip genap dengan 2-4 pasang anak daun. Helaian daun berbentuk lonjong."
                 },
                 {
                     "part": "Fruit",
                     "label": "Anatomi Buah",
-                    "position": "middle-left",
+                    "position": {
+                        "x": 66.6,
+                        "y": 50
+                    },
                     "text": "Buah tipe drupa. Kulit memiliki tonjolan seperti rambut (spinterns). Daging buah (aril) manis berair."
                 },
                 {
                     "part": "Trunk",
                     "label": "Karakter Batang",
-                    "position": "bottom-right",
+                    "position": {
+                        "x": 46.7,
+                        "y": 72.9
+                    },
                     "text": "Batang berkayu keras, silindris, dengan kulit kayu kasar berwarna cokelat gelap. Percabangan simpodial."
                 }
             ]
@@ -73,9 +81,8 @@
         "origin": "Madagaskar",
         "location": "Parkiran + Lapangan",
         "assets": {
-            "image_full": "/assets/pohon/ketapang_kencana_full.png",
-            "image_leaf": "/assets/pohon/ketapang_kencana_leaf.jpg",
-            "image_bark": "/assets/pohon/ketapang_kencana_bark.jpg"
+            "thumbnail": "/assets/pohon/pohonketapangkencana thumbnail.jpeg",
+            "background": "/assets/pohon/pohonketapangkencana background.jpg"
         },
         "anatomy_mode": {
             "description": "Pohon peneduh elegan dengan struktur ranting bertingkat yang rapi.",
@@ -83,19 +90,28 @@
                 {
                     "part": "Leaf",
                     "label": "Struktur Daun",
-                    "position": "top-right",
+                    "position": {
+                        "x": 66.5,
+                        "y": 29.1
+                    },
                     "text": "Daun kecil berbentuk spatulate (sudip) tumbuh bergerombol (rosette) pada ujung ranting."
                 },
                 {
                     "part": "Trunk",
                     "label": "Arsitektur Batang",
-                    "position": "middle-left",
+                    "position": {
+                        "x": 50.9,
+                        "y": 53.3
+                    },
                     "text": "Percabangan horizontal berlapis-lapis membentuk struktur seperti pagoda atau payung."
                 },
                 {
                     "part": "Root",
                     "label": "Sistem Akar",
-                    "position": "bottom-right",
+                    "position": {
+                        "x": 51.4,
+                        "y": 89
+                    },
                     "text": "Akar tunggang yang kuat namun memiliki akar lateral dangkal yang bisa mengangkat tanah/paving."
                 }
             ]
@@ -139,9 +155,8 @@
         "origin": "Filipina",
         "location": "Parkiran",
         "assets": {
-            "image_full": "/assets/pohon/palem_putri_full.png",
-            "image_leaf": "/assets/pohon/palem_putri_leaf.jpg",
-            "image_bark": "/assets/pohon/palem_putri_bark.jpg"
+            "thumbnail": "/assets/pohon/palem putri thumbnail.jpeg",
+            "background": "/assets/pohon/palem putri background_.jpg"
         },
         "anatomy_mode": {
             "description": "Palem hias populer dengan buah merah yang cantik dan batang yang bersih.",
@@ -155,7 +170,10 @@
                 {
                     "part": "Fruit",
                     "label": "Buah Merah",
-                    "position": "middle-right",
+                    "position": {
+                        "x": 52,
+                        "y": 71
+                    },
                     "text": "Buah buni berbentuk lonjong, berwarna hijau saat muda dan merah cerah saat masak."
                 },
                 {
@@ -205,9 +223,8 @@
         "origin": "Asia Timur",
         "location": "Parkiran",
         "assets": {
-            "image_full": "/assets/pohon/bunga_sepatu_full.png",
-            "image_leaf": "/assets/pohon/bunga_sepatu_leaf.jpg",
-            "image_bark": "/assets/pohon/bunga_sepatu_bark.jpg"
+            "thumbnail": "/assets/pohon/bunga sepatu thumbnail.jpeg",
+            "background": "/assets/pohon/bunga sepatu background.jpg"
         },
         "anatomy_mode": {
             "description": "Tanaman semak dengan bunga mencolok yang mekar sepanjang tahun.",
@@ -215,19 +232,28 @@
                 {
                     "part": "Flower",
                     "label": "Anatomi Bunga",
-                    "position": "top-right",
+                    "position": {
+                        "x": 89.7,
+                        "y": 32.9
+                    },
                     "text": "Bunga tunggal besar dengan 5 kelopak. Memiliki kolumna staminal (benang sari menyatu) yang panjang."
                 },
                 {
                     "part": "Leaf",
                     "label": "Tepi Daun",
-                    "position": "middle-left",
+                    "position": {
+                        "x": 34.5,
+                        "y": 43.1
+                    },
                     "text": "Daun tunggal berbentuk bulat telur dengan tepi bergerigi kasar dan permukaan mengkilap."
                 },
                 {
                     "part": "Habit",
                     "label": "Perawakan",
-                    "position": "bottom-right",
+                    "position": {
+                        "x": 51.1,
+                        "y": 75.7
+                    },
                     "text": "Perdu tegak dengan banyak percabangan. Kulit batang berserat kuat."
                 }
             ]
@@ -271,9 +297,8 @@
         "origin": "Amerika Tropis",
         "location": "Lapangan",
         "assets": {
-            "image_full": "/assets/pohon/kamboja_kuning_full.png",
-            "image_leaf": "/assets/pohon/kamboja_kuning_leaf.jpg",
-            "image_bark": "/assets/pohon/kamboja_kuning_bark.jpg"
+            "thumbnail": "/assets/pohon/Kamboja kuning thumbnail.jpg",
+            "background": "/assets/pohon/Kamboja kuning background.jpeg"
         },
         "anatomy_mode": {
             "description": "Pohon hias berbunga harum dengan batang sukulen yang artistik.",
@@ -281,19 +306,28 @@
                 {
                     "part": "Flower",
                     "label": "Bunga Lilin",
-                    "position": "top-left",
+                    "position": {
+                        "x": 49.8,
+                        "y": 18.6
+                    },
                     "text": "Mahkota bunga tebal seperti lilin, beraroma harum khas. Warna kuning cerah hingga putih."
                 },
                 {
                     "part": "Stem",
                     "label": "Batang Sukulen",
-                    "position": "middle-right",
+                    "position": {
+                        "x": 48.2,
+                        "y": 60.3
+                    },
                     "text": "Batang tebal, lunak, dan bergetah putih susu (latex). Menyimpan cadangan air."
                 },
                 {
                     "part": "Branching",
                     "label": "Percabangan",
-                    "position": "bottom-left",
+                    "position": {
+                        "x": 24.1,
+                        "y": 69.3
+                    },
                     "text": "Pola percabangan dikotom (menggarpu dua) yang teratur dan artistik."
                 }
             ]
@@ -337,9 +371,8 @@
         "origin": "Brasil",
         "location": "Lapangan",
         "assets": {
-            "image_full": "/assets/pohon/tabebuya_kuning_full.png",
-            "image_leaf": "/assets/pohon/tabebuya_kuning_leaf.jpg",
-            "image_bark": "/assets/pohon/tabebuya_kuning_bark.jpg"
+            "thumbnail": "/assets/pohon/Tabebuya thumbnail .jpg",
+            "background": "/assets/pohon/tabebuya background.jpg"
         },
         "anatomy_mode": {
             "description": "Pohon pelindung jalan yang berbunga kuning serentak di musim kemarau.",
@@ -359,7 +392,10 @@
                 {
                     "part": "Bark",
                     "label": "Kulit Kayu",
-                    "position": "bottom-right",
+                    "position": {
+                        "x": 42.9,
+                        "y": 36.2
+                    },
                     "text": "Kulit batang tebal, kasar, dan beralur dalam (fissured), tahan terhadap api ringan."
                 }
             ]
@@ -403,9 +439,8 @@
         "origin": "India",
         "location": "Lapangan + Taman",
         "assets": {
-            "image_full": "/assets/pohon/ixora_merah_full.png",
-            "image_leaf": "/assets/pohon/ixora_merah_leaf.jpg",
-            "image_bark": "/assets/pohon/ixora_merah_bark.jpg"
+            "thumbnail": "/assets/pohon/red ixora thumbnail.jpeg",
+            "background": "/assets/pohon/red ixora background .jpeg"
         },
         "anatomy_mode": {
             "description": "Perdu hias populer dengan bunga majemuk berbentuk bola berwarna merah menyala.",
@@ -413,19 +448,28 @@
                 {
                     "part": "Flower",
                     "label": "Bunga Soka",
-                    "position": "top-center",
+                    "position": {
+                        "x": 50.6,
+                        "y": 26
+                    },
                     "text": "Bunga majemuk berbentuk payung (corymb). Tabung mahkota panjang berisi nektar manis."
                 },
                 {
                     "part": "Leaf",
                     "label": "Daun Duduk",
-                    "position": "middle-right",
+                    "position": {
+                        "x": 48.3,
+                        "y": 39.9
+                    },
                     "text": "Daun tunggal, duduk berhadapan (opposite), tekstur kaku seperti kulit (coriaceus)."
                 },
                 {
                     "part": "Habit",
                     "label": "Semak Padat",
-                    "position": "bottom-left",
+                    "position": {
+                        "x": 51.7,
+                        "y": 53
+                    },
                     "text": "Perdu bercabang banyak dan rapat, sering dibentuk menjadi pangkasan (topiary)."
                 }
             ]
@@ -469,9 +513,8 @@
         "origin": "Filipina",
         "location": "Lapangan",
         "assets": {
-            "image_full": "/assets/pohon/nusa_putih_indah_full.png",
-            "image_leaf": "/assets/pohon/nusa_putih_indah_leaf.jpg",
-            "image_bark": "/assets/pohon/nusa_putih_indah_bark.jpg"
+            "thumbnail": "/assets/pohon/Nusa putih indah.jpeg",
+            "background": "/assets/pohon/Nusa-Indah-Putih background.jpg"
         },
         "anatomy_mode": {
             "description": "Tanaman hias dengan daun pelindung (bracts) yang mencolok warnanya.",
@@ -479,19 +522,28 @@
                 {
                     "part": "Bracts",
                     "label": "Daun Pemikat",
-                    "position": "top-left",
+                    "position": {
+                        "x": 14.8,
+                        "y": 53.8
+                    },
                     "text": "Lembaran putih besar bukan bunga, melainkan kelopak daun (sepal) yang membesar (bracts)."
                 },
                 {
                     "part": "Flower",
                     "label": "Bunga Asli",
-                    "position": "top-right",
+                    "position": {
+                        "x": 40.2,
+                        "y": 40
+                    },
                     "text": "Bunga sejati berukuran kecil, berbentuk bintang berwarna kuning/oranye di pusat bracts."
                 },
                 {
                     "part": "Leaf",
                     "label": "Tekstur Daun",
-                    "position": "bottom-center",
+                    "position": {
+                        "x": 22.3,
+                        "y": 40.4
+                    },
                     "text": "Daun hijau berbentuk bulat telur dengan permukaan berbulu halus (pubescent)."
                 }
             ]
@@ -535,9 +587,8 @@
         "origin": "Asia Timur",
         "location": "Lapangan",
         "assets": {
-            "image_full": "/assets/pohon/gardenia_/_kaca_piring_full.png",
-            "image_leaf": "/assets/pohon/gardenia_/_kaca_piring_leaf.jpg",
-            "image_bark": "/assets/pohon/gardenia_/_kaca_piring_bark.jpg"
+            "thumbnail": "/assets/pohon/cape Jasmine thumbnail .jpeg",
+            "background": "/assets/pohon/cape Jasmine background_.jpg"
         },
         "anatomy_mode": {
             "description": "Perdu berbunga putih bersih dengan aroma yang sangat harum dan daun mengkilap.",
@@ -545,19 +596,28 @@
                 {
                     "part": "Flower",
                     "label": "Mahkota Ganda",
-                    "position": "top-right",
+                    "position": {
+                        "x": 22.5,
+                        "y": 46.5
+                    },
                     "text": "Bunga putih bersih, umumnya ganda (banyak kelopak), beraroma sangat kuat."
                 },
                 {
                     "part": "Leaf",
                     "label": "Daun Mengkilap",
-                    "position": "middle-left",
+                    "position": {
+                        "x": 58.6,
+                        "y": 48.6
+                    },
                     "text": "Daun hijau pekat, tebal, permukaan atas sangat licin dan mengkilap (glossy)."
                 },
                 {
                     "part": "Habit",
                     "label": "Perdu Hijau",
-                    "position": "bottom-right",
+                    "position": {
+                        "x": 42.8,
+                        "y": 51.7
+                    },
                     "text": "Semak evergreen (selalu hijau) dengan percabangan simpodial yang padat."
                 }
             ]
@@ -601,9 +661,8 @@
         "origin": "Asia Tenggara",
         "location": "Lapangan",
         "assets": {
-            "image_full": "/assets/pohon/pucuk_merah_full.png",
-            "image_leaf": "/assets/pohon/pucuk_merah_leaf.jpg",
-            "image_bark": "/assets/pohon/pucuk_merah_bark.jpg"
+            "thumbnail": "/assets/pohon/pucuk merah thumbnail.jpg",
+            "background": "/assets/pohon/pucuk-merah background.jpg"
         },
         "anatomy_mode": {
             "description": "Tanaman hias populer yang tunas daun barunya selalu berwarna merah cerah.",
@@ -611,19 +670,28 @@
                 {
                     "part": "Leaf",
                     "label": "Pigmen Daun",
-                    "position": "top-center",
+                    "position": {
+                        "x": 42.8,
+                        "y": 51.7
+                    },
                     "text": "Daun muda berwarna merah menyala karena pigmen antosianin, berubah hijau saat dewasa."
                 },
                 {
                     "part": "Stem",
                     "label": "Batang Kayu",
-                    "position": "middle-right",
+                    "position": {
+                        "x": 68.5,
+                        "y": 69.1
+                    },
                     "text": "Batang keras dan serat kayu padat. Mampu bertahan dari pemangkasan berulang."
                 },
                 {
                     "part": "Root",
                     "label": "Akar Tunggang",
-                    "position": "bottom-left",
+                    "position": {
+                        "x": 78.4,
+                        "y": 74.2
+                    },
                     "text": "Sistem perakaran tunggang yang dalam, mampu menahan tanah (konservasi)."
                 }
             ]
@@ -667,9 +735,8 @@
         "origin": "Amerika Selatan",
         "location": "Lapangan",
         "assets": {
-            "image_full": "/assets/pohon/bunga_kertas_full.png",
-            "image_leaf": "/assets/pohon/bunga_kertas_leaf.jpg",
-            "image_bark": "/assets/pohon/bunga_kertas_bark.jpg"
+            "thumbnail": "/assets/pohon/bunga kertas thumbnail.jpeg",
+            "background": "/assets/pohon/bunga kertas background.jpg"
         },
         "anatomy_mode": {
             "description": "Tanaman merambat berduri dengan seludang bunga warna-warni setipis kertas.",
@@ -677,19 +744,28 @@
                 {
                     "part": "Bracts",
                     "label": "Seludang Bunga",
-                    "position": "top-right",
+                    "position": {
+                        "x": 63.5,
+                        "y": 25.1
+                    },
                     "text": "Warna-warni cerah berasal dari daun pelindung (bracts) tipis seperti kertas."
                 },
                 {
                     "part": "Stem",
                     "label": "Batang Berduri",
-                    "position": "middle-left",
+                    "position": {
+                        "x": 43.7,
+                        "y": 58.2
+                    },
                     "text": "Batang memanjat (scandent) yang dilengkapi duri keras dan tajam pada ketiak daun."
                 },
                 {
                     "part": "Habit",
                     "label": "Sifat Tumbuh",
-                    "position": "bottom-right",
+                    "position": {
+                        "x": 38,
+                        "y": 17.9
+                    },
                     "text": "Tanaman liana yang bisa merambat tinggi atau dipangkas menjadi perdu."
                 }
             ]
@@ -733,9 +809,8 @@
         "origin": "Madagaskar",
         "location": "Lapangan",
         "assets": {
-            "image_full": "/assets/pohon/aralera_/_palem_kuning_full.png",
-            "image_leaf": "/assets/pohon/aralera_/_palem_kuning_leaf.jpg",
-            "image_bark": "/assets/pohon/aralera_/_palem_kuning_bark.jpg"
+            "thumbnail": "/assets/pohon/arare thumbnail.jpg",
+            "background": "/assets/pohon/arare background.jpeg"
         },
         "anatomy_mode": {
             "description": "Palem berumpun dengan pelepah berwarna kuning cerah khas dan daun menyirip.",
@@ -743,19 +818,28 @@
                 {
                     "part": "Stem",
                     "label": "Rumpun Batang",
-                    "position": "bottom-left",
+                    "position": {
+                        "x": 50.6,
+                        "y": 23.3
+                    },
                     "text": "Tumbuh berumpun (clustered) dengan banyak anakan, batang berbuku-buku mirip bambu."
                 },
                 {
                     "part": "Leaf",
                     "label": "Pelepah Kuning",
-                    "position": "top-right",
+                    "position": {
+                        "x": 27.4,
+                        "y": 45.8
+                    },
                     "text": "Tulang daun dan pelepah berwarna kuning keemasan/hijau kekuningan yang khas."
                 },
                 {
                     "part": "Leaflets",
                     "label": "Anak Daun",
-                    "position": "middle-right",
+                    "position": {
+                        "x": 70.9,
+                        "y": 61.8
+                    },
                     "text": "Anak daun menyirip, sempit memanjang, tumbuh tegak lalu melengkung di ujung."
                 }
             ]
@@ -799,9 +883,8 @@
         "origin": "Indonesia",
         "location": "Lapangan + Taman",
         "assets": {
-            "image_full": "/assets/pohon/pohon_pelangi_full.png",
-            "image_leaf": "/assets/pohon/pohon_pelangi_leaf.jpg",
-            "image_bark": "/assets/pohon/pohon_pelangi_bark.jpg"
+            "thumbnail": "/assets/pohon/pohon pelangi thumbnail.jpg",
+            "background": "/assets/pohon/Pohon pelangi background_.jpg"
         },
         "anatomy_mode": {
             "description": "Pohon raksasa dengan kulit batang berwarna-warni alami yang memukau.",
@@ -809,19 +892,28 @@
                 {
                     "part": "Bark",
                     "label": "Kulit Pelangi",
-                    "position": "middle-center",
+                    "position": {
+                        "x": 81.9,
+                        "y": 29.8
+                    },
                     "text": "Kulit kayu mengelupas memanjang, menampilkan lapisan hijau, biru, ungu, dan jingga."
                 },
                 {
                     "part": "Leaf",
                     "label": "Aroma Daun",
-                    "position": "top-right",
+                    "position": {
+                        "x": 50,
+                        "y": 39.7
+                    },
                     "text": "Daun lanset memanjang. Jika diremas mengeluarkan aroma minyak kayu putih ringan."
                 },
                 {
                     "part": "Habit",
                     "label": "Batang Raksasa",
-                    "position": "bottom-left",
+                    "position": {
+                        "x": 68.3,
+                        "y": 55.9
+                    },
                     "text": "Pohon besar dengan batang utama lurus (monopodial) dan banir (akar papan) kecil."
                 }
             ]
@@ -865,9 +957,8 @@
         "origin": "Indochina",
         "location": "Taman",
         "assets": {
-            "image_full": "/assets/pohon/sambang_dara_full.png",
-            "image_leaf": "/assets/pohon/sambang_dara_leaf.jpg",
-            "image_bark": "/assets/pohon/sambang_dara_bark.jpg"
+            "thumbnail": "/assets/pohon/sambangdarah thumbnail.png",
+            "background": "/assets/pohon/sambangdarah background_.jpg"
         },
         "anatomy_mode": {
             "description": "Perdu unik dengan daun yang memiliki dua warna kontras (atas hijau, bawah merah).",
@@ -875,19 +966,28 @@
                 {
                     "part": "Leaf",
                     "label": "Dua Warna",
-                    "position": "top-right",
+                    "position": {
+                        "x": 57.1,
+                        "y": 21.2
+                    },
                     "text": "Daun lonjong, permukaan atas hijau tua, permukaan bawah merah darah (maroon)."
                 },
                 {
                     "part": "Latex",
                     "label": "Getah Putih",
-                    "position": "middle-left",
+                    "position": {
+                        "x": 60,
+                        "y": 31.2
+                    },
                     "text": "Seluruh bagian tanaman mengandung getah putih yang beracun dan iritan."
                 },
                 {
                     "part": "Habit",
                     "label": "Semak Tegak",
-                    "position": "bottom-right",
+                    "position": {
+                        "x": 54.9,
+                        "y": 50
+                    },
                     "text": "Perdu tahunan dengan batang berkayu kecil dan percabangan banyak."
                 }
             ]
@@ -931,9 +1031,8 @@
         "origin": "Asia Tenggara",
         "location": "Taman",
         "assets": {
-            "image_full": "/assets/pohon/cempedak_full.png",
-            "image_leaf": "/assets/pohon/cempedak_leaf.jpg",
-            "image_bark": "/assets/pohon/cempedak_bark.jpg"
+            "thumbnail": "/assets/pohon/cempedak thumbnail.jpeg",
+            "background": "/assets/pohon/Cempedak background.jpg"
         },
         "anatomy_mode": {
             "description": "Pohon buah tropis dengan aroma khas yang kuat dan kayu berkualitas.",
@@ -941,19 +1040,28 @@
                 {
                     "part": "Fruit",
                     "label": "Buah Semu",
-                    "position": "middle-right",
+                    "position": {
+                        "x": 60.6,
+                        "y": 38.2
+                    },
                     "text": "Buah majemuk (syncarp) silindris. Kulit berduri tumpul, aroma sangat menusuk saat matang."
                 },
                 {
                     "part": "Leaf",
                     "label": "Bulu Daun",
-                    "position": "top-left",
+                    "position": {
+                        "x": 22.6,
+                        "y": 16.9
+                    },
                     "text": "Daun lebar dan kaku. Permukaan daun, ranting, dan kuncup tertutup bulu kasar panjang."
                 },
                 {
                     "part": "Twig",
                     "label": "Cincin Stipula",
-                    "position": "bottom-left",
+                    "position": {
+                        "x": 56.9,
+                        "y": 23.3
+                    },
                     "text": "Ranting memiliki bekas daun penumpu (stipula) yang melingkar jelas seperti cincin."
                 }
             ]
@@ -997,9 +1105,8 @@
         "origin": "Asia Tenggara",
         "location": "Taman",
         "assets": {
-            "image_full": "/assets/pohon/anting_putri_full.png",
-            "image_leaf": "/assets/pohon/anting_putri_leaf.jpg",
-            "image_bark": "/assets/pohon/anting_putri_bark.jpg"
+            "thumbnail": "/assets/pohon/anting putri thumbnail.jpeg",
+            "background": "/assets/pohon/anting putri background .jpg"
         },
         "anatomy_mode": {
             "description": "Tanaman hias populer untuk bonsai dengan bunga putih kecil menggantung.",
@@ -1007,19 +1114,28 @@
                 {
                     "part": "Flower",
                     "label": "Bunga Gantung",
-                    "position": "top-right",
+                    "position": {
+                        "x": 35.1,
+                        "y": 42.1
+                    },
                     "text": "Bunga putih kecil dengan tangkai panjang halus, menggantung ke bawah (pendulous)."
                 },
                 {
                     "part": "Leaf",
                     "label": "Daun Tipis",
-                    "position": "middle-left",
+                    "position": {
+                        "x": 53.5,
+                        "y": 28.7
+                    },
                     "text": "Daun tunggal berwarna hijau muda cerah, tipis seperti kertas (papyraceus)."
                 },
                 {
                     "part": "Branch",
                     "label": "Ranting Lentur",
-                    "position": "bottom-right",
+                    "position": {
+                        "x": 16.9,
+                        "y": 59.3
+                    },
                     "text": "Ranting sangat fleksibel dan ulet, mudah dibentuk dengan kawat (training) untuk bonsai."
                 }
             ]
@@ -1063,9 +1179,8 @@
         "origin": "Amerika Tropis",
         "location": "Taman",
         "assets": {
-            "image_full": "/assets/pohon/antidisentri_/_asam_belanda_full.png",
-            "image_leaf": "/assets/pohon/antidisentri_/_asam_belanda_leaf.jpg",
-            "image_bark": "/assets/pohon/antidisentri_/_asam_belanda_bark.jpg"
+            "thumbnail": "/assets/pohon/antidisentri thumbnail.jpg",
+            "background": "/assets/pohon/antidisentri background.jpg"
         },
         "anatomy_mode": {
             "description": "Pohon tangguh berduri dengan buah yang dapat dimakan dan khasiat obat.",
@@ -1073,19 +1188,28 @@
                 {
                     "part": "Fruit",
                     "label": "Buah Polong",
-                    "position": "top-right",
+                    "position": {
+                        "x": 23.5,
+                        "y": 39
+                    },
                     "text": "Polong berpilin yang merekah merah saat matang, menampilkan daging putih (aril)."
                 },
                 {
                     "part": "Stem",
                     "label": "Duri Pasangan",
-                    "position": "middle-left",
+                    "position": {
+                        "x": 37.8,
+                        "y": 49.2
+                    },
                     "text": "Pada pangkal tangkai daun terdapat sepasang duri tajam (stipular spines)."
                 },
                 {
                     "part": "Leaf",
                     "label": "Daun Majemuk",
-                    "position": "bottom-right",
+                    "position": {
+                        "x": 68.2,
+                        "y": 48.1
+                    },
                     "text": "Daun majemuk bipinnate dengan hanya 4 anak daun (2 pasang) per tangkai."
                 }
             ]
@@ -1129,9 +1253,8 @@
         "origin": "Asia Tenggara",
         "location": "Taman",
         "assets": {
-            "image_full": "/assets/pohon/kumis_kucing_full.png",
-            "image_leaf": "/assets/pohon/kumis_kucing_leaf.jpg",
-            "image_bark": "/assets/pohon/kumis_kucing_bark.jpg"
+            "thumbnail": "/assets/pohon/kumis kucing thumbnail.jpg",
+            "background": "/assets/pohon/kumis-kucing background.jpg"
         },
         "anatomy_mode": {
             "description": "Tanaman obat herbal populer dengan bunga unik yang menyerupai helai kumis kucing.",
@@ -1139,19 +1262,28 @@
                 {
                     "part": "Flower",
                     "label": "Benang Sari",
-                    "position": "top-right",
+                    "position": {
+                        "x": 54.4,
+                        "y": 58.5
+                    },
                     "text": "Ciri paling khas: Benang sari (stamen) tumbuh sangat panjang melebihi mahkota bunga, melengkung mirip kumis kucing."
                 },
                 {
                     "part": "Stem",
                     "label": "Batang Segiempat",
-                    "position": "middle-left",
+                    "position": {
+                        "x": 47.7,
+                        "y": 47.4
+                    },
                     "text": "Batang berbentuk segiempat (quadrangular), ciri khas famili Lamiaceae, berwarna kemerahan."
                 },
                 {
                     "part": "Leaf",
                     "label": "Tepi Bergerigi",
-                    "position": "bottom-right",
+                    "position": {
+                        "x": 43.6,
+                        "y": 58
+                    },
                     "text": "Daun berbentuk lanset/lonjong dengan tepian bergerigi kasar dan ujung runcing."
                 }
             ]
@@ -1195,9 +1327,8 @@
         "origin": "Brasil",
         "location": "Taman",
         "assets": {
-            "image_full": "/assets/pohon/giant_bromeliad_full.png",
-            "image_leaf": "/assets/pohon/giant_bromeliad_leaf.jpg",
-            "image_bark": "/assets/pohon/giant_bromeliad_bark.jpg"
+            "thumbnail": "/assets/pohon/drakaena thumbnail.jpg",
+            "background": "/assets/pohon/drakaena background.jpg"
         },
         "anatomy_mode": {
             "description": "Tanaman hias raksasa yang mampu menampung air dan membentuk ekosistem mikro sendiri.",
@@ -1205,19 +1336,28 @@
                 {
                     "part": "Leaf",
                     "label": "Tangki Air",
-                    "position": "middle-center",
+                    "position": {
+                        "x": 48.9,
+                        "y": 19.9
+                    },
                     "text": "Susunan daun membentuk 'tangki' (rosette) yang kedap air di tengahnya untuk menampung air hujan dan nutrisi."
                 },
                 {
                     "part": "Color",
                     "label": "Gradasi Warna",
-                    "position": "top-right",
+                    "position": {
+                        "x": 52.6,
+                        "y": 63.9
+                    },
                     "text": "Daun tebal berdaging dengan warna hijau di pangkal dan merah marun (rubra) di ujung, dilapisi lilin putih."
                 },
                 {
                     "part": "Root",
                     "label": "Akar Jangkar",
-                    "position": "bottom-left",
+                    "position": {
+                        "x": 48.9,
+                        "y": 83.8
+                    },
                     "text": "Akarnya hanya berfungsi sebagai jangkar (pegangan) ke batu/tanah, bukan penyerap nutrisi utama."
                 }
             ]

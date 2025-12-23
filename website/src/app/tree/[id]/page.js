@@ -128,18 +128,30 @@ export default function TreePage({ params }) {
       className={`relative transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
       suppressHydrationWarning
     >
-      <Navigation>
+      {/* Bottom Navigation Buttons */}
+      <div className="fixed bottom-44 left-4 z-50">
         <Link
-          href={`/tree/${id}/lens`}
-          className="glass-dark rounded-full px-4 py-2 flex items-center gap-2 text-white hover:bg-white/20 transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-forest-400 focus:ring-offset-2 focus:ring-offset-transparent"
+          href="/"
+          className="bg-white rounded-full px-4 py-2 flex items-center gap-2 text-gray-800 hover:bg-gray-100 transition-all duration-300 shadow-lg border border-gray-200 group focus:outline-none focus:ring-2 focus:ring-primary/50"
         >
-          <span className="text-sm font-medium">Mode Lensa</span>
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 group-hover:-translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          <span className="text-xs font-bold uppercase tracking-widest">Beranda</span>
+        </Link>
+      </div>
+      <div className="fixed bottom-44 right-4 z-50">
+        <Link
+          href={`/tree/lens/${id}`}
+          className="bg-white rounded-full px-4 py-2 flex items-center gap-2 text-gray-800 hover:bg-gray-100 transition-all duration-300 shadow-lg border border-gray-200 group focus:outline-none focus:ring-2 focus:ring-primary/50"
+        >
+          <span className="text-xs font-bold uppercase tracking-widest">Mode Lensa</span>
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
           </svg>
         </Link>
-      </Navigation>
+      </div>
       <ScrollProgress progress={scrollYProgress} />
 
       {/* ===== FIXED IDENTITY CARD (TOP-LEFT) ===== */}
@@ -266,7 +278,7 @@ export default function TreePage({ params }) {
         }} />
       </section>
 
-      <footer className="bg-[#1f4028] py-8 text-center">
+      <footer className="bg-[#1f4028] pt-8 pb-20 text-center">
         <p className="text-white text-base font-bold">I.Q.R.A - Intelligent Quick-Response Arboretum</p>
         <p className="text-[#86efac] text-sm mt-2">© 2025 - Proyek Edukasi Digital</p>
       </footer>

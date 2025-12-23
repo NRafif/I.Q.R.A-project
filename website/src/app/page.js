@@ -6,9 +6,14 @@
  * Landing page untuk I.Q.R.A dengan desain "Arboretum Digital".
  * 
  * Architecture:
- * - Menggunakan komponen modular untuk maintainability
- * - Client-side data fetching untuk real-time updates
+ * - Menggunakan SWR untuk data fetching dengan caching
+ * - Komponen modular untuk maintainability
  * - Light theme dengan typography serif/sans
+ * 
+ * Performance:
+ * - SWR provides automatic caching and revalidation
+ * - Stale-while-revalidate pattern for fast loading
+ * - Focus revalidation for fresh data
  * 
  * Sections:
  * 1. Navbar - Fixed navigation
@@ -20,68 +25,50 @@
  * @component
  */
 
-import { useState, useEffect } from 'react'
 import Navbar from '@/components/Navbar'
 import HeroSection from '@/components/HeroSection'
 import TreeCollection from '@/components/TreeCollection'
 import AboutSection from '@/components/AboutSection'
 import Footer from '@/components/Footer'
-import { loadTreesData, validateTreeData } from '@/lib/data'
+import { useTreesData } from '@/lib/hooks'
+import { validateTreeData } from '@/lib/data'
+import { useMemo } from 'react'
 
 export default function Home() {
-  // State management
-  const [treesData, setTreesData] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
-  const [error, setError] = useState(null)
+  // SWR hook for cached data fetching
+  // - Automatic caching di memory
+  // - Revalidation saat focus kembali ke tab
+  // - Deduplication untuk avoid double fetch
+  const { trees, isLoading, isError } = useTreesData()
 
   /**
-   * Data fetching dengan validation
-   * 
-   * Mengapa validasi di sini?
-   * - Filter invalid data sebelum render untuk prevent UI errors
-   * - Early detection jika data structure berubah
-   * - Graceful degradation: show error jika semua data invalid
+   * Validate tree data dengan memoization
+   * Hanya re-validate jika trees berubah
    */
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        setIsLoading(true)
-        setError(null)
+  const validTrees = useMemo(() => {
+    if (!trees || trees.length === 0) return []
+    return trees.filter(tree => validateTreeData(tree))
+  }, [trees])
 
-        // Fetch data (dengan error handling di dalam loadTreesData)
-        const data = await loadTreesData()
-
-        // Validate setiap tree sebelum digunakan
-        const validData = data.filter(tree => validateTreeData(tree))
-
-        // Check jika ada data tapi semua invalid
-        if (validData.length === 0 && data.length > 0) {
-          setError('Data pohon tidak valid')
-        } else {
-          setTreesData(validData)
-        }
-      } catch (err) {
-        console.error('Error loading trees:', err)
-        setError('Gagal memuat data pohon. Silakan refresh halaman.')
-      } finally {
-        setIsLoading(false)
-      }
-    }
-
-    fetchData()
-  }, [])
+  // Determine error message
+  const errorMessage = isError
+    ? 'Gagal memuat data pohon. Silakan refresh halaman.'
+    : (trees.length > 0 && validTrees.length === 0)
+      ? 'Data pohon tidak valid'
+      : null
 
   return (
     <main className="bg-bg-light text-text-main font-sans antialiased" suppressHydrationWarning>
       <Navbar />
-      <HeroSection treeCount={treesData.length || 17} />
+      <HeroSection treeCount={validTrees.length || 17} />
       <TreeCollection
-        trees={treesData}
+        trees={validTrees}
         isLoading={isLoading}
-        error={error}
+        error={errorMessage}
       />
       <AboutSection />
       <Footer />
     </main>
   )
 }
+

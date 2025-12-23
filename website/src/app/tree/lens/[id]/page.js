@@ -33,8 +33,34 @@ export default function LensPage({ params }) {
 
     if (isLoading || !tree) return <div className="h-screen bg-[#F4F6F8] flex items-center justify-center">Loading...</div>
 
-    // Helper to map position strings to CSS styles
-    const getPositionStyle = (pos) => {
+    // Helper to get position - supports multiple formats:
+    // 1. hotspot.x and hotspot.y at root level
+    // 2. hotspot.position as object { x, y }
+    // 3. hotspot.position as preset string like "top-right"
+    const getPositionStyle = (hotspot) => {
+        // Check if x,y at root level
+        if (typeof hotspot.x === 'number' && typeof hotspot.y === 'number') {
+            return {
+                left: `${hotspot.x}%`,
+                top: `${hotspot.y}%`,
+                transform: 'translate(-50%, -50%)'
+            }
+        }
+
+        // Check if position is object with x,y
+        if (hotspot.position && typeof hotspot.position === 'object') {
+            const { x, y } = hotspot.position
+            if (typeof x === 'number' && typeof y === 'number') {
+                return {
+                    left: `${x}%`,
+                    top: `${y}%`,
+                    transform: 'translate(-50%, -50%)'
+                }
+            }
+        }
+
+        // Fallback to preset position strings for backward compatibility
+        const pos = hotspot.position || 'middle-center'
         switch (pos) {
             case 'top-left': return { top: '20%', left: '25%' }
             case 'top-right': return { top: '20%', right: '25%' }
@@ -47,6 +73,20 @@ export default function LensPage({ params }) {
             case 'bottom-center': return { bottom: '15%', left: '50%', transform: 'translateX(-50%)' }
             default: return { top: '50%', left: '50%' }
         }
+    }
+
+    // Helper to determine info card side based on hotspot position
+    const isLeftSide = (hotspot) => {
+        // Check root level x
+        if (typeof hotspot.x === 'number') {
+            return hotspot.x < 50
+        }
+        // Check position object
+        if (hotspot.position && typeof hotspot.position === 'object') {
+            return hotspot.position.x < 50
+        }
+        // Fallback to string check
+        return typeof hotspot.position === 'string' && hotspot.position.includes('left')
     }
 
     const anatomy = tree.anatomy_mode || {}
@@ -122,7 +162,7 @@ export default function LensPage({ params }) {
                             <div
                                 key={idx}
                                 className="absolute group z-30"
-                                style={getPositionStyle(hotspot.position)}
+                                style={getPositionStyle(hotspot)}
                                 onMouseEnter={() => setActiveHotspot(idx)}
                                 onMouseLeave={() => setActiveHotspot(null)}
                             >
@@ -134,7 +174,7 @@ export default function LensPage({ params }) {
 
                                     {/* Connecting Line (Only visible on larger screens/hover) */}
                                     <div className={`absolute top-1/2 h-[1px] bg-black/80 transition-all duration-300 origin-center
-                                  ${hotspot.position.includes('left') ? 'right-full w-0 group-hover:w-16' : 'left-full w-0 group-hover:w-16'}
+                                  ${isLeftSide(hotspot) ? 'right-full w-0 group-hover:w-16' : 'left-full w-0 group-hover:w-16'}
                                   hidden md:block
                              `} />
 
@@ -147,7 +187,7 @@ export default function LensPage({ params }) {
                                         // Mobile: Center card usually, Desktop: Side
                                         'left-1/2 -translate-x-1/2 top-8 md:top-1/2 md:-translate-y-1/2 md:translate-x-0'
                                         }
-                                ${hotspot.position.includes('left') ? 'md:right-[calc(100%+4rem)] md:border-l-0 md:border-r-4 md:rounded-l-lg md:rounded-r-none' : 'md:left-[calc(100%+4rem)]'
+                                ${isLeftSide(hotspot) ? 'md:right-[calc(100%+4rem)] md:border-l-0 md:border-r-4 md:rounded-l-lg md:rounded-r-none' : 'md:left-[calc(100%+4rem)]'
                                         }
                              `}>
                                         <div className="flex items-center gap-2 mb-2 pb-2 border-b border-gray-100">
