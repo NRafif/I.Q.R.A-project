@@ -123,7 +123,7 @@ def generate_qr_codes():
     
     # Get base URL dari environment variable
     # Fallback ke default untuk development
-    base_url = os.getenv('NEXT_PUBLIC_BASE_URL', 'https://iqra-fixing.vercel.app')
+    base_url = os.getenv('NEXT_PUBLIC_BASE_URL', 'https://iqra-so.vercel.app')
     
     # URL validation dan sanitization
     if not validate_url(base_url):
@@ -133,9 +133,11 @@ def generate_qr_codes():
     
     # Construct URL path dengan proper formatting
     # Memastikan trailing slash untuk consistency
+    # URL mengarah ke Mode Lensa terlebih dahulu (/tree/lens/[id])
+    # User bisa navigate ke Journey Mode atau Beranda dari sana
     if not base_url.endswith('/'):
         base_url += '/'
-    base_url += 'tree/'
+    base_url += 'tree/lens/'
     
     print("=" * 60)
     print("  I.Q.R.A - QR Code Generator")
