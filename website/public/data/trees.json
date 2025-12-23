@@ -893,8 +893,8 @@
                     "part": "Bark",
                     "label": "Kulit Pelangi",
                     "position": {
-                        "x": 81.9,
-                        "y": 29.8
+                        "x": 50,
+                        "y": 39.7
                     },
                     "text": "Kulit kayu mengelupas memanjang, menampilkan lapisan hijau, biru, ungu, dan jingga."
                 },
@@ -902,8 +902,8 @@
                     "part": "Leaf",
                     "label": "Aroma Daun",
                     "position": {
-                        "x": 50,
-                        "y": 39.7
+                        "x": 81.9,
+                        "y": 29.8
                     },
                     "text": "Daun lanset memanjang. Jika diremas mengeluarkan aroma minyak kayu putih ringan."
                 },
