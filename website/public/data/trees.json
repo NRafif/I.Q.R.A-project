@@ -164,7 +164,10 @@
                 {
                     "part": "Leaf",
                     "label": "Daun Mahkota",
-                    "position": "top-left",
+                    "position": {
+                        "x": 43.6,
+                        "y": 21.6
+                    },
                     "text": "Daun majemuk menyirip (pinnate) yang melengkung indah, membentuk tajuk seperti mahkota."
                 },
                 {
@@ -686,8 +689,8 @@
                     "part": "Stem",
                     "label": "Batang Kayu",
                     "position": {
-                        "x": 68.5,
-                        "y": 69.1
+                        "x": 52.9,
+                        "y": 73.8
                     },
                     "text": "Batang keras dan serat kayu padat. Mampu bertahan dari pemangkasan berulang."
                 },
@@ -695,8 +698,8 @@
                     "part": "Root",
                     "label": "Akar Tunggang",
                     "position": {
-                        "x": 78.4,
-                        "y": 74.2
+                        "x": 74,
+                        "y": 73.9
                     },
                     "text": "Sistem perakaran tunggang yang dalam, mampu menahan tanah (konservasi)."
                 }
@@ -769,8 +772,8 @@
                     "part": "Habit",
                     "label": "Sifat Tumbuh",
                     "position": {
-                        "x": 38,
-                        "y": 17.9
+                        "x": 48,
+                        "y": 31.2
                     },
                     "text": "Tanaman liana yang bisa merambat tinggi atau dipangkas menjadi perdu."
                 }
@@ -843,8 +846,8 @@
                     "part": "Leaflets",
                     "label": "Anak Daun",
                     "position": {
-                        "x": 70.9,
-                        "y": 61.8
+                        "x": 75.3,
+                        "y": 61.4
                     },
                     "text": "Anak daun menyirip, sempit memanjang, tumbuh tegak lalu melengkung di ujung."
                 }
@@ -908,8 +911,8 @@
                     "part": "Leaf",
                     "label": "Aroma Daun",
                     "position": {
-                        "x": 81.9,
-                        "y": 29.8
+                        "x": 75.6,
+                        "y": 34.1
                     },
                     "text": "Daun lanset memanjang. Jika diremas mengeluarkan aroma minyak kayu putih ringan."
                 },
