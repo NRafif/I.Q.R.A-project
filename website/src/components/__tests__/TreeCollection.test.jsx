@@ -2,15 +2,17 @@
  * TreeCollection Component Tests
  * 
  * Tests untuk TreeCollection, TreeCard, dan TreeCardSkeleton components.
+ * Updated to match actual component implementation.
  */
 
 import { render, screen, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom'
 
-// Mock framer-motion untuk avoid animation issues in tests
+// Mock framer-motion
 jest.mock('framer-motion', () => ({
     motion: {
-        div: ({ children, ...props }) => <div {...props}>{children}</div>,
+        div: ({ children, className, ...props }) => <div className={className} {...props}>{children}</div>,
+        h2: ({ children, className, ...props }) => <h2 className={className} {...props}>{children}</h2>,
         button: ({ children, ...props }) => <button {...props}>{children}</button>,
     },
     AnimatePresence: ({ children }) => children,
@@ -87,10 +89,10 @@ const mockTrees = [
 describe('TreeCollection', () => {
     describe('Loading State', () => {
         it('renders loading skeletons when isLoading is true', () => {
-            render(<TreeCollection trees={[]} isLoading={true} error={null} />)
+            const { container } = render(<TreeCollection trees={[]} isLoading={true} error={null} />)
 
-            // Should render skeleton placeholders
-            const skeletons = document.querySelectorAll('.animate-pulse')
+            // Should render skeleton placeholders with animate-pulse
+            const skeletons = container.querySelectorAll('.animate-pulse')
             expect(skeletons.length).toBeGreaterThan(0)
         })
     })
@@ -99,28 +101,33 @@ describe('TreeCollection', () => {
         it('renders error message when error prop is provided', () => {
             render(<TreeCollection trees={[]} isLoading={false} error="Gagal memuat data" />)
 
-            expect(screen.getByText('Gagal memuat data')).toBeInTheDocument()
+            expect(screen.getByText(/Gagal memuat data/i)).toBeInTheDocument()
+        })
+
+        it('shows refresh button on error', () => {
+            render(<TreeCollection trees={[]} isLoading={false} error="Error" />)
+
+            expect(screen.getByText('Refresh Halaman')).toBeInTheDocument()
         })
     })
 
     describe('Empty State', () => {
-        it('renders empty state when no trees and no error', () => {
+        it('renders empty state message when no trees', () => {
             render(<TreeCollection trees={[]} isLoading={false} error={null} />)
 
-            expect(screen.getByText(/Tidak ada pohon/i)).toBeInTheDocument()
+            expect(screen.getByText(/Tidak ada data pohon/i)).toBeInTheDocument()
         })
     })
 
     describe('Populated State', () => {
-        it('renders tree cards when trees data is provided', () => {
+        it('renders tree names', () => {
             render(<TreeCollection trees={mockTrees} isLoading={false} error={null} />)
 
-            // Check tree names are rendered
             expect(screen.getByText('Rambutan')).toBeInTheDocument()
             expect(screen.getByText('Mangga')).toBeInTheDocument()
         })
 
-        it('renders scientific names in italic', () => {
+        it('renders scientific names', () => {
             render(<TreeCollection trees={mockTrees} isLoading={false} error={null} />)
 
             expect(screen.getByText('Nephelium lappaceum')).toBeInTheDocument()
@@ -134,7 +141,7 @@ describe('TreeCollection', () => {
             expect(screen.getByText('02')).toBeInTheDocument()
         })
 
-        it('renders links to tree detail pages', () => {
+        it('renders links to tree lens pages', () => {
             render(<TreeCollection trees={mockTrees} isLoading={false} error={null} />)
 
             const links = screen.getAllByRole('link')
@@ -153,15 +160,22 @@ describe('TreeCollection', () => {
         it('renders fallback emoji when no thumbnail', () => {
             render(<TreeCollection trees={mockTrees} isLoading={false} error={null} />)
 
-            // Jambu has no assets, should show fallback
+            // Jambu has null assets, should show fallback
             const fallbackEmojis = screen.getAllByText('🌳')
             expect(fallbackEmojis.length).toBeGreaterThan(0)
+        })
+
+        it('renders location badges', () => {
+            render(<TreeCollection trees={mockTrees} isLoading={false} error={null} />)
+
+            expect(screen.getByText('Taman A')).toBeInTheDocument()
+            expect(screen.getByText('Taman B')).toBeInTheDocument()
         })
     })
 
     describe('Show More Functionality', () => {
-        it('shows limited trees initially when more than initial count', () => {
-            // Create more trees for pagination test
+        it('shows Lihat Semua button when more than 6 trees', () => {
+            // Create 10 trees for pagination test
             const manyTrees = Array.from({ length: 10 }, (_, i) => ({
                 ...mockTrees[0],
                 id: i + 1,
@@ -170,12 +184,10 @@ describe('TreeCollection', () => {
 
             render(<TreeCollection trees={manyTrees} isLoading={false} error={null} />)
 
-            // Should have "Lihat Semua Koleksi" button if there are hidden trees
-            const showMoreButton = screen.queryByText(/Lihat Semua Koleksi/i)
-            expect(showMoreButton).toBeInTheDocument()
+            expect(screen.getByText(/Lihat Semua Koleksi/i)).toBeInTheDocument()
         })
 
-        it('expands to show all trees when show more is clicked', () => {
+        it('shows Sembunyikan button after clicking show more', () => {
             const manyTrees = Array.from({ length: 10 }, (_, i) => ({
                 ...mockTrees[0],
                 id: i + 1,
@@ -187,8 +199,22 @@ describe('TreeCollection', () => {
             const showMoreButton = screen.getByText(/Lihat Semua Koleksi/i)
             fireEvent.click(showMoreButton)
 
-            // After clicking, button text should change
-            expect(screen.queryByText(/Sembunyikan/i) || screen.queryByText(/Tree 10/i)).toBeTruthy()
+            expect(screen.getByText(/Sembunyikan/i)).toBeInTheDocument()
+        })
+
+        it('does not show button if 6 or fewer trees', () => {
+            render(<TreeCollection trees={mockTrees} isLoading={false} error={null} />)
+
+            expect(screen.queryByText(/Lihat Semua Koleksi/i)).not.toBeInTheDocument()
+        })
+    })
+
+    describe('Section Structure', () => {
+        it('renders section header', () => {
+            render(<TreeCollection trees={mockTrees} isLoading={false} error={null} />)
+
+            expect(screen.getByText('Koleksi Pohon')).toBeInTheDocument()
+            expect(screen.getByText('Flora Library')).toBeInTheDocument()
         })
     })
 
@@ -201,7 +227,7 @@ describe('TreeCollection', () => {
                 link.getAttribute('aria-label')?.includes('Rambutan')
             )
 
-            expect(treeLink).toHaveAttribute('aria-label', expect.stringContaining('Rambutan'))
+            expect(treeLink).toHaveAttribute('aria-label', expect.stringContaining('Pelajari tentang Rambutan'))
         })
     })
 })

@@ -27,12 +27,13 @@ describe('Data Utilities', () => {
           scientific_name: 'Testus treeus',
           family: 'Testaceae',
           location: 'Test Location',
-          content: {
+          story_mode: {
             sky_section: { headline: 'Test', sub_headline: 'Test desc' },
             canopy_section: { title: 'Test', description: 'Test' },
             trunk_section: [],
             root_section: { description: 'Test' },
           },
+          anatomy_mode: {},
         },
       ]
 
@@ -43,7 +44,6 @@ describe('Data Utilities', () => {
 
       const result = await loadTreesData()
       expect(result).toEqual(mockData)
-      // Update expectation untuk match actual implementation dengan baseUrl dan headers
       expect(fetch).toHaveBeenCalledWith(
         'http://localhost/data/trees.json',
         {
@@ -56,13 +56,21 @@ describe('Data Utilities', () => {
     })
 
     it('should return empty array on error', async () => {
+      // Suppress console.error for this test
+      const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => { })
+
       fetch.mockRejectedValueOnce(new Error('Network error'))
 
       const result = await loadTreesData()
       expect(result).toEqual([])
+
+      consoleSpy.mockRestore()
     })
 
     it('should return empty array on invalid response', async () => {
+      // Suppress console.error for this test
+      const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => { })
+
       fetch.mockResolvedValueOnce({
         ok: false,
         status: 404,
@@ -71,6 +79,8 @@ describe('Data Utilities', () => {
 
       const result = await loadTreesData()
       expect(result).toEqual([])
+
+      consoleSpy.mockRestore()
     })
   })
 
@@ -82,12 +92,13 @@ describe('Data Utilities', () => {
         scientific_name: 'Testus treeus',
         family: 'Testaceae',
         location: 'Test Location',
-        content: {
+        story_mode: {
           sky_section: { headline: 'Test', sub_headline: 'Test desc' },
           canopy_section: { title: 'Test', description: 'Test' },
           trunk_section: [],
           root_section: { description: 'Test' },
         },
+        anatomy_mode: {},
       }
 
       fetch.mockResolvedValueOnce({
@@ -123,12 +134,13 @@ describe('Data Utilities', () => {
         scientific_name: 'Test',
         family: 'Test',
         location: 'Test',
-        content: {
+        story_mode: {
           sky_section: {},
           canopy_section: {},
           trunk_section: [],
           root_section: {},
         },
+        anatomy_mode: {},
       }
 
       expect(validateTreeData(validTree)).toBe(true)
@@ -147,12 +159,11 @@ describe('Data Utilities', () => {
       const defaultTree = getDefaultTree()
       expect(defaultTree).toHaveProperty('id', 0)
       expect(defaultTree).toHaveProperty('common_name')
-      expect(defaultTree).toHaveProperty('content')
-      expect(defaultTree.content).toHaveProperty('sky_section')
-      expect(defaultTree.content).toHaveProperty('canopy_section')
-      expect(defaultTree.content).toHaveProperty('trunk_section')
-      expect(defaultTree.content).toHaveProperty('root_section')
+      expect(defaultTree).toHaveProperty('story_mode')
+      expect(defaultTree.story_mode).toHaveProperty('sky_section')
+      expect(defaultTree.story_mode).toHaveProperty('canopy_section')
+      expect(defaultTree.story_mode).toHaveProperty('trunk_section')
+      expect(defaultTree.story_mode).toHaveProperty('root_section')
     })
   })
 })
-

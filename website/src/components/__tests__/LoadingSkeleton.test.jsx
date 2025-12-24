@@ -2,52 +2,90 @@
  * LoadingSkeleton Component Tests
  * 
  * Tests untuk skeleton loading components.
+ * Updated to match actual component implementation.
  */
 
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import '@testing-library/jest-dom'
 
-// Import components
-import {
-    TreeDetailSkeleton,
-    TreeCollectionSkeleton
-} from '../LoadingSkeleton'
+// Mock framer-motion
+jest.mock('framer-motion', () => ({
+    motion: {
+        div: ({ children, className, ...props }) => (
+            <div className={className} {...props}>{children}</div>
+        ),
+    },
+}))
 
-describe('LoadingSkeleton Components', () => {
-    describe('TreeDetailSkeleton', () => {
-        it('renders skeleton structure', () => {
-            const { container } = render(<TreeDetailSkeleton />)
+// Import components after mocks
+import { TreeCardSkeleton, TreeDetailSkeleton, LoadingSpinner } from '../LoadingSkeleton'
 
-            // Should have animate-pulse classes for loading animation
-            const pulsingElements = container.querySelectorAll('.animate-pulse')
-            expect(pulsingElements.length).toBeGreaterThan(0)
-        })
+describe('TreeCardSkeleton', () => {
+    it('renders skeleton structure with animate-pulse', () => {
+        const { container } = render(<TreeCardSkeleton />)
 
-        it('has accessible loading indicator', () => {
-            render(<TreeDetailSkeleton />)
-
-            // Could check for sr-only text or aria attributes
-            const skeleton = screen.getByRole('status') || document.querySelector('[aria-busy="true"]')
-            // If no explicit role, just check it renders
-            expect(document.body).toBeInTheDocument()
-        })
+        // Should have animate-pulse classes for loading animation
+        const pulsingElements = container.querySelectorAll('.animate-pulse')
+        expect(pulsingElements.length).toBeGreaterThan(0)
     })
 
-    describe('TreeCollectionSkeleton', () => {
-        it('renders multiple skeleton cards', () => {
-            const { container } = render(<TreeCollectionSkeleton count={6} />)
+    it('has glass-dark rounded container', () => {
+        const { container } = render(<TreeCardSkeleton />)
 
-            // Should render skeleton placeholders
-            const skeletons = container.querySelectorAll('.animate-pulse')
-            expect(skeletons.length).toBeGreaterThanOrEqual(1)
-        })
+        const wrapper = container.firstChild
+        expect(wrapper.className).toContain('glass-dark')
+        expect(wrapper.className).toContain('rounded-xl')
+    })
+})
 
-        it('renders correct number of skeletons based on count prop', () => {
-            const { container } = render(<TreeCollectionSkeleton count={3} />)
+describe('TreeDetailSkeleton', () => {
+    it('renders without crashing', () => {
+        const { container } = render(<TreeDetailSkeleton />)
 
-            // Check for skeleton cards
-            const cards = container.querySelectorAll('[class*="rounded"]')
-            expect(cards.length).toBeGreaterThan(0)
-        })
+        // Should render a main element
+        const main = container.querySelector('main')
+        expect(main).toBeInTheDocument()
+    })
+
+    it('has min-h-screen for full page skeleton', () => {
+        const { container } = render(<TreeDetailSkeleton />)
+
+        const main = container.querySelector('main')
+        expect(main.className).toContain('min-h-screen')
+    })
+})
+
+describe('LoadingSpinner', () => {
+    it('renders spinner with default size', () => {
+        const { container } = render(<LoadingSpinner />)
+
+        // Should have a rotating element
+        const spinner = container.querySelector('.border-4')
+        expect(spinner).toBeInTheDocument()
+        expect(spinner.className).toContain('w-8')
+        expect(spinner.className).toContain('h-8')
+    })
+
+    it('renders small spinner when size="sm"', () => {
+        const { container } = render(<LoadingSpinner size="sm" />)
+
+        const spinner = container.querySelector('.border-4')
+        expect(spinner.className).toContain('w-4')
+        expect(spinner.className).toContain('h-4')
+    })
+
+    it('renders large spinner when size="lg"', () => {
+        const { container } = render(<LoadingSpinner size="lg" />)
+
+        const spinner = container.querySelector('.border-4')
+        expect(spinner.className).toContain('w-12')
+        expect(spinner.className).toContain('h-12')
+    })
+
+    it('has rounded-full class for circular shape', () => {
+        const { container } = render(<LoadingSpinner />)
+
+        const spinner = container.querySelector('.border-4')
+        expect(spinner.className).toContain('rounded-full')
     })
 })

@@ -1,6 +1,9 @@
 {
   "/_global-error/page": "app/_global-error/page.js",
   "/_not-found/page": "app/_not-found/page.js",
+  "/editor/hotspot/page": "app/editor/hotspot/page.js",
   "/page": "app/page.js",
-  "/tree/[id]/page": "app/tree/[id]/page.js"
+  "/tree/[id]/lens/page": "app/tree/[id]/lens/page.js",
+  "/tree/[id]/page": "app/tree/[id]/page.js",
+  "/tree/lens/[id]/page": "app/tree/lens/[id]/page.js"
 }

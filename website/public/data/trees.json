@@ -179,7 +179,10 @@
                 {
                     "part": "Trunk",
                     "label": "Batang Tunggal",
-                    "position": "bottom-center",
+                    "position": {
+                        "x": 48.3,
+                        "y": 76.1
+                    },
                     "text": "Batang tunggal (soliter) berwarna abu-abu muda dengan bekas tumpuan daun (leaf scar) yang jelas."
                 }
             ]
@@ -386,7 +389,10 @@
                 {
                     "part": "Leaf",
                     "label": "Daun Palem",
-                    "position": "middle-left",
+                    "position": {
+                        "x": 23,
+                        "y": 55.8
+                    },
                     "text": "Daun majemuk menjari (palmate) dengan 5 anak daun yang tebal dan berbulu halus."
                 },
                 {

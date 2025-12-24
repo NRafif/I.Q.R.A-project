@@ -17,6 +17,12 @@ jest.mock('path', () => ({
 describe('Server Data Utilities', () => {
   beforeEach(() => {
     jest.clearAllMocks()
+    // Suppress console.error for expected errors
+    jest.spyOn(console, 'error').mockImplementation(() => { })
+  })
+
+  afterEach(() => {
+    jest.restoreAllMocks()
   })
 
   describe('loadTreesDataServer', () => {
@@ -28,12 +34,13 @@ describe('Server Data Utilities', () => {
           scientific_name: 'Testus treeus',
           family: 'Testaceae',
           location: 'Test',
-          content: {
+          story_mode: {
             sky_section: {},
             canopy_section: {},
             trunk_section: [],
             root_section: {},
           },
+          anatomy_mode: {},
         },
       ]
 
@@ -77,12 +84,13 @@ describe('Server Data Utilities', () => {
           scientific_name: 'Testus treeus',
           family: 'Testaceae',
           location: 'Test',
-          content: {
+          story_mode: {
             sky_section: {},
             canopy_section: {},
             trunk_section: [],
             root_section: {},
           },
+          anatomy_mode: {},
         },
       ]
 
@@ -103,7 +111,15 @@ describe('Server Data Utilities', () => {
     })
 
     it('should return null for out of range ID', async () => {
-      const mockData = [{ id: 1, common_name: 'Test', scientific_name: 'Test', family: 'Test', location: 'Test', content: {} }]
+      const mockData = [{
+        id: 1,
+        common_name: 'Test',
+        scientific_name: 'Test',
+        family: 'Test',
+        location: 'Test',
+        story_mode: {},
+        anatomy_mode: {}
+      }]
       fs.existsSync.mockReturnValue(true)
       fs.readFileSync.mockReturnValue(JSON.stringify(mockData))
 
@@ -112,4 +128,3 @@ describe('Server Data Utilities', () => {
     })
   })
 })
-
