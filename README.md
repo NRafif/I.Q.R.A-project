@@ -12,9 +12,12 @@ I.Q.R.A adalah singkatan dari **Intelligent Quick-Response Arboretum**, yang mem
 
 ### Fitur Utama
 
-- ✅ QR Code generator otomatis untuk setiap pohon
+- ✅ **Lens Mode** - Mode anatomi dengan hotspot interaktif pada gambar pohon
+- ✅ **Hotspot Editor** - Tool developer untuk menentukan koordinat hotspot (`/editor/hotspot`)
+- ✅ QR Code generator otomatis untuk setiap pohon (mengarah ke Lens Mode)
 - ✅ Website interaktif dengan konsep "Ground-to-Sky" (akar → batang → daun)
-- ✅ Reverse scrolling experience yang unik
+- ✅ Reverse scrolling experience yang unik (Journey Mode)
+- ✅ Smart hotspot positioning - Card otomatis menyesuaikan posisi
 - ✅ Glassmorphism UI design
 - ✅ Responsive design untuk semua device
 - ✅ SEO optimized dengan dynamic metadata
@@ -285,7 +288,7 @@ npm run start
 - [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) - Architecture Documentation
 - [docs/SECURITY.md](./docs/SECURITY.md) - Security Documentation
 - [docs/CODE_STYLE.md](./docs/CODE_STYLE.md) - Code Style Guide
-  
+
 ## 🔒 Security
 
 Project ini mengimplementasikan berbagai security measures:
