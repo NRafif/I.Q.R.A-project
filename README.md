@@ -285,8 +285,7 @@ npm run start
 - [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) - Architecture Documentation
 - [docs/SECURITY.md](./docs/SECURITY.md) - Security Documentation
 - [docs/CODE_STYLE.md](./docs/CODE_STYLE.md) - Code Style Guide
-- [file/Proposal Proyek Pohon.txt](./file/Proposal%20Proyek%20Pohon.txt) - Proposal lengkap proyek
-
+  
 ## 🔒 Security
 
 Project ini mengimplementasikan berbagai security measures:
