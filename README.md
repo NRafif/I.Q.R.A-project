@@ -107,32 +107,70 @@ npm run test:coverage # Run tests with coverage
 2. Tambahkan object pohon baru dengan struktur:
 ```json
 {
-  "id": 18,
-  "common_name": "Nama Umum",
-  "scientific_name": "Nama Ilmiah",
-  "family": "Family Name",
-  "location": "Lokasi",
-  "content": {
-    "sky_section": {
-      "headline": "Headline",
-      "sub_headline": "Sub headline"
-    },
-    "canopy_section": {
-      "title": "Title",
-      "description": "Description"
-    },
-    "trunk_section": [
-      {
-        "type": "Type",
-        "title": "Title",
-        "description": "Description"
-      }
-    ],
-    "root_section": {
-      "description": "Description"
+        "id": 20,
+        "common_name": "Common Name",
+        "scientific_name": "Scientific Name",
+        "family": "Family",
+        "origin": "Origin",
+        "location": "Location",
+        "assets": {
+            "thumbnail": "Thumbnail",
+            "background": "Background"
+        },
+        "anatomy_mode": {
+            "description": "Description",
+            "hotspots": [
+                {
+                    "part": "Part",
+                    "label": "Label",
+                    "position": "Position",
+                    "text": "Text"
+                },
+                {
+                    "part": "Part",
+                    "label": "Label",
+                    "position": "Position",
+                    "text": "Text"
+                },
+                {
+                    "part": "Part",
+                    "label": "Label",
+                    "position": "Position",
+                    "text": "Text"
+                }
+            ]
+        },
+        "story_mode": {
+            "sky_section": {
+                "headline": "Headline",
+                "sub_headline": "Sub Headline"
+            },
+            "canopy_section": {
+                "title": "Title",
+                "description": "Description"
+            },
+            "trunk_section": [
+                {
+                    "type": "Type",
+                    "title": "Title",
+                    "description": "Description"
+                },
+                {
+                    "type": "Type",
+                    "title": "Title",
+                    "description": "Description"
+                },
+                {
+                    "type": "Type",
+                    "title": "Title",
+                    "description": "Description"
+                }
+            ],
+            "root_section": {
+                "description": "Description"
+            }
+        }
     }
-  }
-}
 ```
 
 3. Generate QR Code baru:
@@ -288,8 +326,8 @@ Lihat [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) untuk detail architecture.
 
 ## 👥 Tim Proyek
 
-- **Nofal Rafif Setiawan** - System Architect + Backend Engineer
-- **Gilang Maulana Kussay** - Frontend Developer + UI/UX Engineer
+- **Nofal Rafif Setiawan** - Frontend Developer + UI/UX Engineer
+- **Gilang Maulana Kussay** - Backend Engineer
 
 ## 📄 License
 
